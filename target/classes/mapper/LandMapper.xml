@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="zhku.zhou.asset.dao.LandMapper" >
+  <resultMap id="BaseResultMap" type="zhku.zhou.asset.entity.Land" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="ogid" property="ogid" jdbcType="INTEGER" />
+    <result column="code" property="code" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="residual" property="residual" jdbcType="DECIMAL" />
+    <result column="original" property="original" jdbcType="DECIMAL" />
+    <result column="status" property="status" jdbcType="DECIMAL" />
+    <result column="prod_date" property="prodDate" jdbcType="DATE" />
+    <result column="creator" property="creator" jdbcType="INTEGER" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="buyer" property="buyer" jdbcType="INTEGER" />
+    <result column="buy_date" property="buyDate" jdbcType="DATE" />
+    <result column="crtm" property="crtm" jdbcType="TIMESTAMP" />
+    <result column="mdtm" property="mdtm" jdbcType="TIMESTAMP" />
+    <result column="asl" property="asl" jdbcType="DECIMAL" />
+    <result column="area" property="area" jdbcType="DECIMAL" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, ogid, code, name, residual, original, status, prod_date, creator, create_time, 
+    buyer, buy_date, crtm, mdtm, asl, area, remarks
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="zhku.zhou.asset.entity.LandExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from land
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from land
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from land
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="zhku.zhou.asset.entity.LandExample" >
+    delete from land
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="zhku.zhou.asset.entity.Land" >
+    insert into land (id, ogid, code, 
+      name, residual, original, 
+      status, prod_date, creator, 
+      create_time, buyer, buy_date, 
+      crtm, mdtm, asl, 
+      area, remarks)
+    values (#{id,jdbcType=INTEGER}, #{ogid,jdbcType=INTEGER}, #{code,jdbcType=VARCHAR}, 
+      #{name,jdbcType=VARCHAR}, #{residual,jdbcType=DECIMAL}, #{original,jdbcType=DECIMAL}, 
+      #{status,jdbcType=DECIMAL}, #{prodDate,jdbcType=DATE}, #{creator,jdbcType=INTEGER}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{buyer,jdbcType=INTEGER}, #{buyDate,jdbcType=DATE}, 
+      #{crtm,jdbcType=TIMESTAMP}, #{mdtm,jdbcType=TIMESTAMP}, #{asl,jdbcType=DECIMAL}, 
+      #{area,jdbcType=DECIMAL}, #{remarks,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="zhku.zhou.asset.entity.Land" >
+    insert into land
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="ogid != null" >
+        ogid,
+      </if>
+      <if test="code != null" >
+        code,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="residual != null" >
+        residual,
+      </if>
+      <if test="original != null" >
+        original,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="prodDate != null" >
+        prod_date,
+      </if>
+      <if test="creator != null" >
+        creator,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="buyer != null" >
+        buyer,
+      </if>
+      <if test="buyDate != null" >
+        buy_date,
+      </if>
+      <if test="crtm != null" >
+        crtm,
+      </if>
+      <if test="mdtm != null" >
+        mdtm,
+      </if>
+      <if test="asl != null" >
+        asl,
+      </if>
+      <if test="area != null" >
+        area,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="ogid != null" >
+        #{ogid,jdbcType=INTEGER},
+      </if>
+      <if test="code != null" >
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="residual != null" >
+        #{residual,jdbcType=DECIMAL},
+      </if>
+      <if test="original != null" >
+        #{original,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=DECIMAL},
+      </if>
+      <if test="prodDate != null" >
+        #{prodDate,jdbcType=DATE},
+      </if>
+      <if test="creator != null" >
+        #{creator,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="buyer != null" >
+        #{buyer,jdbcType=INTEGER},
+      </if>
+      <if test="buyDate != null" >
+        #{buyDate,jdbcType=DATE},
+      </if>
+      <if test="crtm != null" >
+        #{crtm,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mdtm != null" >
+        #{mdtm,jdbcType=TIMESTAMP},
+      </if>
+      <if test="asl != null" >
+        #{asl,jdbcType=DECIMAL},
+      </if>
+      <if test="area != null" >
+        #{area,jdbcType=DECIMAL},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="zhku.zhou.asset.entity.LandExample" resultType="java.lang.Integer" >
+    select count(*) from land
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update land
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.ogid != null" >
+        ogid = #{record.ogid,jdbcType=INTEGER},
+      </if>
+      <if test="record.code != null" >
+        code = #{record.code,jdbcType=VARCHAR},
+      </if>
+      <if test="record.name != null" >
+        name = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.residual != null" >
+        residual = #{record.residual,jdbcType=DECIMAL},
+      </if>
+      <if test="record.original != null" >
+        original = #{record.original,jdbcType=DECIMAL},
+      </if>
+      <if test="record.status != null" >
+        status = #{record.status,jdbcType=DECIMAL},
+      </if>
+      <if test="record.prodDate != null" >
+        prod_date = #{record.prodDate,jdbcType=DATE},
+      </if>
+      <if test="record.creator != null" >
+        creator = #{record.creator,jdbcType=INTEGER},
+      </if>
+      <if test="record.createTime != null" >
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.buyer != null" >
+        buyer = #{record.buyer,jdbcType=INTEGER},
+      </if>
+      <if test="record.buyDate != null" >
+        buy_date = #{record.buyDate,jdbcType=DATE},
+      </if>
+      <if test="record.crtm != null" >
+        crtm = #{record.crtm,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.mdtm != null" >
+        mdtm = #{record.mdtm,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.asl != null" >
+        asl = #{record.asl,jdbcType=DECIMAL},
+      </if>
+      <if test="record.area != null" >
+        area = #{record.area,jdbcType=DECIMAL},
+      </if>
+      <if test="record.remarks != null" >
+        remarks = #{record.remarks,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update land
+    set id = #{record.id,jdbcType=INTEGER},
+      ogid = #{record.ogid,jdbcType=INTEGER},
+      code = #{record.code,jdbcType=VARCHAR},
+      name = #{record.name,jdbcType=VARCHAR},
+      residual = #{record.residual,jdbcType=DECIMAL},
+      original = #{record.original,jdbcType=DECIMAL},
+      status = #{record.status,jdbcType=DECIMAL},
+      prod_date = #{record.prodDate,jdbcType=DATE},
+      creator = #{record.creator,jdbcType=INTEGER},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      buyer = #{record.buyer,jdbcType=INTEGER},
+      buy_date = #{record.buyDate,jdbcType=DATE},
+      crtm = #{record.crtm,jdbcType=TIMESTAMP},
+      mdtm = #{record.mdtm,jdbcType=TIMESTAMP},
+      asl = #{record.asl,jdbcType=DECIMAL},
+      area = #{record.area,jdbcType=DECIMAL},
+      remarks = #{record.remarks,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="zhku.zhou.asset.entity.Land" >
+    update land
+    <set >
+      <if test="ogid != null" >
+        ogid = #{ogid,jdbcType=INTEGER},
+      </if>
+      <if test="code != null" >
+        code = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="residual != null" >
+        residual = #{residual,jdbcType=DECIMAL},
+      </if>
+      <if test="original != null" >
+        original = #{original,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=DECIMAL},
+      </if>
+      <if test="prodDate != null" >
+        prod_date = #{prodDate,jdbcType=DATE},
+      </if>
+      <if test="creator != null" >
+        creator = #{creator,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="buyer != null" >
+        buyer = #{buyer,jdbcType=INTEGER},
+      </if>
+      <if test="buyDate != null" >
+        buy_date = #{buyDate,jdbcType=DATE},
+      </if>
+      <if test="crtm != null" >
+        crtm = #{crtm,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mdtm != null" >
+        mdtm = #{mdtm,jdbcType=TIMESTAMP},
+      </if>
+      <if test="asl != null" >
+        asl = #{asl,jdbcType=DECIMAL},
+      </if>
+      <if test="area != null" >
+        area = #{area,jdbcType=DECIMAL},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="zhku.zhou.asset.entity.Land" >
+    update land
+    set ogid = #{ogid,jdbcType=INTEGER},
+      code = #{code,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      residual = #{residual,jdbcType=DECIMAL},
+      original = #{original,jdbcType=DECIMAL},
+      status = #{status,jdbcType=DECIMAL},
+      prod_date = #{prodDate,jdbcType=DATE},
+      creator = #{creator,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      buyer = #{buyer,jdbcType=INTEGER},
+      buy_date = #{buyDate,jdbcType=DATE},
+      crtm = #{crtm,jdbcType=TIMESTAMP},
+      mdtm = #{mdtm,jdbcType=TIMESTAMP},
+      asl = #{asl,jdbcType=DECIMAL},
+      area = #{area,jdbcType=DECIMAL},
+      remarks = #{remarks,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

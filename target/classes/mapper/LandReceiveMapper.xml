@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="zhku.zhou.asset.dao.LandReceiveMapper" >
+  <resultMap id="BaseResultMap" type="zhku.zhou.asset.entity.LandReceive" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="lid" property="lid" jdbcType="INTEGER" />
+    <result column="code" property="code" jdbcType="VARCHAR" />
+    <result column="recipients" property="recipients" jdbcType="VARCHAR" />
+    <result column="receive_date" property="receiveDate" jdbcType="TIMESTAMP" />
+    <result column="return_date" property="returnDate" jdbcType="TIMESTAMP" />
+    <result column="status" property="status" jdbcType="DECIMAL" />
+    <result column="rc_remarks" property="rcRemarks" jdbcType="VARCHAR" />
+    <result column="rt_remarks" property="rtRemarks" jdbcType="VARCHAR" />
+    <result column="crtm" property="crtm" jdbcType="TIMESTAMP" />
+    <result column="mdtm" property="mdtm" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, lid, code, recipients, receive_date, return_date, status, rc_remarks, rt_remarks, 
+    crtm, mdtm
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="zhku.zhou.asset.entity.LandReceiveExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from land_receive
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from land_receive
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from land_receive
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="zhku.zhou.asset.entity.LandReceiveExample" >
+    delete from land_receive
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="zhku.zhou.asset.entity.LandReceive" >
+    insert into land_receive (id, lid, code, 
+      recipients, receive_date, return_date, 
+      status, rc_remarks, rt_remarks, 
+      crtm, mdtm)
+    values (#{id,jdbcType=INTEGER}, #{lid,jdbcType=INTEGER}, #{code,jdbcType=VARCHAR}, 
+      #{recipients,jdbcType=VARCHAR}, #{receiveDate,jdbcType=TIMESTAMP}, #{returnDate,jdbcType=TIMESTAMP}, 
+      #{status,jdbcType=DECIMAL}, #{rcRemarks,jdbcType=VARCHAR}, #{rtRemarks,jdbcType=VARCHAR}, 
+      #{crtm,jdbcType=TIMESTAMP}, #{mdtm,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="zhku.zhou.asset.entity.LandReceive" >
+    insert into land_receive
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="lid != null" >
+        lid,
+      </if>
+      <if test="code != null" >
+        code,
+      </if>
+      <if test="recipients != null" >
+        recipients,
+      </if>
+      <if test="receiveDate != null" >
+        receive_date,
+      </if>
+      <if test="returnDate != null" >
+        return_date,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="rcRemarks != null" >
+        rc_remarks,
+      </if>
+      <if test="rtRemarks != null" >
+        rt_remarks,
+      </if>
+      <if test="crtm != null" >
+        crtm,
+      </if>
+      <if test="mdtm != null" >
+        mdtm,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="lid != null" >
+        #{lid,jdbcType=INTEGER},
+      </if>
+      <if test="code != null" >
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="recipients != null" >
+        #{recipients,jdbcType=VARCHAR},
+      </if>
+      <if test="receiveDate != null" >
+        #{receiveDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="returnDate != null" >
+        #{returnDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=DECIMAL},
+      </if>
+      <if test="rcRemarks != null" >
+        #{rcRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="rtRemarks != null" >
+        #{rtRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="crtm != null" >
+        #{crtm,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mdtm != null" >
+        #{mdtm,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="zhku.zhou.asset.entity.LandReceiveExample" resultType="java.lang.Integer" >
+    select count(*) from land_receive
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update land_receive
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.lid != null" >
+        lid = #{record.lid,jdbcType=INTEGER},
+      </if>
+      <if test="record.code != null" >
+        code = #{record.code,jdbcType=VARCHAR},
+      </if>
+      <if test="record.recipients != null" >
+        recipients = #{record.recipients,jdbcType=VARCHAR},
+      </if>
+      <if test="record.receiveDate != null" >
+        receive_date = #{record.receiveDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.returnDate != null" >
+        return_date = #{record.returnDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.status != null" >
+        status = #{record.status,jdbcType=DECIMAL},
+      </if>
+      <if test="record.rcRemarks != null" >
+        rc_remarks = #{record.rcRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="record.rtRemarks != null" >
+        rt_remarks = #{record.rtRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="record.crtm != null" >
+        crtm = #{record.crtm,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.mdtm != null" >
+        mdtm = #{record.mdtm,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update land_receive
+    set id = #{record.id,jdbcType=INTEGER},
+      lid = #{record.lid,jdbcType=INTEGER},
+      code = #{record.code,jdbcType=VARCHAR},
+      recipients = #{record.recipients,jdbcType=VARCHAR},
+      receive_date = #{record.receiveDate,jdbcType=TIMESTAMP},
+      return_date = #{record.returnDate,jdbcType=TIMESTAMP},
+      status = #{record.status,jdbcType=DECIMAL},
+      rc_remarks = #{record.rcRemarks,jdbcType=VARCHAR},
+      rt_remarks = #{record.rtRemarks,jdbcType=VARCHAR},
+      crtm = #{record.crtm,jdbcType=TIMESTAMP},
+      mdtm = #{record.mdtm,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="zhku.zhou.asset.entity.LandReceive" >
+    update land_receive
+    <set >
+      <if test="lid != null" >
+        lid = #{lid,jdbcType=INTEGER},
+      </if>
+      <if test="code != null" >
+        code = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="recipients != null" >
+        recipients = #{recipients,jdbcType=VARCHAR},
+      </if>
+      <if test="receiveDate != null" >
+        receive_date = #{receiveDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="returnDate != null" >
+        return_date = #{returnDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=DECIMAL},
+      </if>
+      <if test="rcRemarks != null" >
+        rc_remarks = #{rcRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="rtRemarks != null" >
+        rt_remarks = #{rtRemarks,jdbcType=VARCHAR},
+      </if>
+      <if test="crtm != null" >
+        crtm = #{crtm,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mdtm != null" >
+        mdtm = #{mdtm,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="zhku.zhou.asset.entity.LandReceive" >
+    update land_receive
+    set lid = #{lid,jdbcType=INTEGER},
+      code = #{code,jdbcType=VARCHAR},
+      recipients = #{recipients,jdbcType=VARCHAR},
+      receive_date = #{receiveDate,jdbcType=TIMESTAMP},
+      return_date = #{returnDate,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=DECIMAL},
+      rc_remarks = #{rcRemarks,jdbcType=VARCHAR},
+      rt_remarks = #{rtRemarks,jdbcType=VARCHAR},
+      crtm = #{crtm,jdbcType=TIMESTAMP},
+      mdtm = #{mdtm,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
