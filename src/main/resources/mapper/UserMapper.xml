@@ -8,10 +8,10 @@
     <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="pwd" property="pwd" jdbcType="VARCHAR" />
     <result column="sex" property="sex" jdbcType="DECIMAL" />
-    <result column="birth" property="birth" jdbcType="VARCHAR" />
+    <result column="birth" property="birth" jdbcType="DATE" />
     <result column="phone" property="phone" jdbcType="VARCHAR" />
     <result column="email" property="email" jdbcType="VARCHAR" />
-    <result column="login_time" property="loginTime" jdbcType="VARCHAR" />
+    <result column="login_time" property="loginTime" jdbcType="TIMESTAMP" />
     <result column="login_ip" property="loginIp" jdbcType="VARCHAR" />
     <result column="crtm" property="crtm" jdbcType="TIMESTAMP" />
     <result column="mdtm" property="mdtm" jdbcType="TIMESTAMP" />
@@ -114,8 +114,8 @@
       login_ip, crtm, mdtm
       )
     values (#{id,jdbcType=INTEGER}, #{rid,jdbcType=INTEGER}, #{ogid,jdbcType=INTEGER}, 
-      #{name,jdbcType=VARCHAR}, #{pwd,jdbcType=VARCHAR}, #{sex,jdbcType=DECIMAL}, #{birth,jdbcType=VARCHAR}, 
-      #{phone,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{loginTime,jdbcType=VARCHAR}, 
+      #{name,jdbcType=VARCHAR}, #{pwd,jdbcType=VARCHAR}, #{sex,jdbcType=DECIMAL}, #{birth,jdbcType=DATE}, 
+      #{phone,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{loginTime,jdbcType=TIMESTAMP}, 
       #{loginIp,jdbcType=VARCHAR}, #{crtm,jdbcType=TIMESTAMP}, #{mdtm,jdbcType=TIMESTAMP}
       )
   </insert>
@@ -182,7 +182,7 @@
         #{sex,jdbcType=DECIMAL},
       </if>
       <if test="birth != null" >
-        #{birth,jdbcType=VARCHAR},
+        #{birth,jdbcType=DATE},
       </if>
       <if test="phone != null" >
         #{phone,jdbcType=VARCHAR},
@@ -191,7 +191,7 @@
         #{email,jdbcType=VARCHAR},
       </if>
       <if test="loginTime != null" >
-        #{loginTime,jdbcType=VARCHAR},
+        #{loginTime,jdbcType=TIMESTAMP},
       </if>
       <if test="loginIp != null" >
         #{loginIp,jdbcType=VARCHAR},
@@ -232,7 +232,7 @@
         sex = #{record.sex,jdbcType=DECIMAL},
       </if>
       <if test="record.birth != null" >
-        birth = #{record.birth,jdbcType=VARCHAR},
+        birth = #{record.birth,jdbcType=DATE},
       </if>
       <if test="record.phone != null" >
         phone = #{record.phone,jdbcType=VARCHAR},
@@ -241,7 +241,7 @@
         email = #{record.email,jdbcType=VARCHAR},
       </if>
       <if test="record.loginTime != null" >
-        login_time = #{record.loginTime,jdbcType=VARCHAR},
+        login_time = #{record.loginTime,jdbcType=TIMESTAMP},
       </if>
       <if test="record.loginIp != null" >
         login_ip = #{record.loginIp,jdbcType=VARCHAR},
@@ -265,10 +265,10 @@
       name = #{record.name,jdbcType=VARCHAR},
       pwd = #{record.pwd,jdbcType=VARCHAR},
       sex = #{record.sex,jdbcType=DECIMAL},
-      birth = #{record.birth,jdbcType=VARCHAR},
+      birth = #{record.birth,jdbcType=DATE},
       phone = #{record.phone,jdbcType=VARCHAR},
       email = #{record.email,jdbcType=VARCHAR},
-      login_time = #{record.loginTime,jdbcType=VARCHAR},
+      login_time = #{record.loginTime,jdbcType=TIMESTAMP},
       login_ip = #{record.loginIp,jdbcType=VARCHAR},
       crtm = #{record.crtm,jdbcType=TIMESTAMP},
       mdtm = #{record.mdtm,jdbcType=TIMESTAMP}
@@ -295,7 +295,7 @@
         sex = #{sex,jdbcType=DECIMAL},
       </if>
       <if test="birth != null" >
-        birth = #{birth,jdbcType=VARCHAR},
+        birth = #{birth,jdbcType=DATE},
       </if>
       <if test="phone != null" >
         phone = #{phone,jdbcType=VARCHAR},
@@ -304,7 +304,7 @@
         email = #{email,jdbcType=VARCHAR},
       </if>
       <if test="loginTime != null" >
-        login_time = #{loginTime,jdbcType=VARCHAR},
+        login_time = #{loginTime,jdbcType=TIMESTAMP},
       </if>
       <if test="loginIp != null" >
         login_ip = #{loginIp,jdbcType=VARCHAR},
@@ -325,10 +325,10 @@
       name = #{name,jdbcType=VARCHAR},
       pwd = #{pwd,jdbcType=VARCHAR},
       sex = #{sex,jdbcType=DECIMAL},
-      birth = #{birth,jdbcType=VARCHAR},
+      birth = #{birth,jdbcType=DATE},
       phone = #{phone,jdbcType=VARCHAR},
       email = #{email,jdbcType=VARCHAR},
-      login_time = #{loginTime,jdbcType=VARCHAR},
+      login_time = #{loginTime,jdbcType=TIMESTAMP},
       login_ip = #{loginIp,jdbcType=VARCHAR},
       crtm = #{crtm,jdbcType=TIMESTAMP},
       mdtm = #{mdtm,jdbcType=TIMESTAMP}

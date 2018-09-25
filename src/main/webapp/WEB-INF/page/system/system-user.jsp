@@ -27,20 +27,19 @@
 	<table class="table table-border table-bordered table-bg">
 		<thead>
 			<tr>
-				<th scope="col" colspan="9">用户列表</th>
+				<th scope="col" colspan="15">用户列表</th>
 			</tr>
 			<tr class="text-c">
 				<th width="25"><input type="checkbox" name="" value=""></th>
 				<th width="40">序号</th>
-				<th width="150">角色</th>
-				<th width="90">部门</th>
-				<th width="150">登录名</th>
+				<th width="100">角色</th>
+				<th width="100">部门</th>
+				<th width="100">登录名</th>
 				<th width="100">密码</th>
-				<th width="130">性别</th>
+				<th width="100">性别</th>
 				<th width="100">生日</th>
 				<th width="100">电话</th>
 				<th width="100">电子邮件</th>
-				<th width="100">登录时间</th>
 				<th width="100">登录时间</th>
 				<th width="100">登录IP</th>
 				<th width="100">创建时间</th>
@@ -58,13 +57,13 @@
 				<td>${item.name }</td>
 				<td>${item.pwd }</td>
 				<td>${item.sex }</td>
-				<td>${item.birth }</td>
+				<td><fmt:formatDate value="${item.birth }" pattern="yyyy-MM-dd"/></td>
 				<td>${item.phone }</td>
 				<td>${item.email }</td>
-				<td>${item.loginTime }</td>
+				<td><fmt:formatDate value="${item.loginTime }" pattern="yyyy-MM-dd hh:mm:ss"/></td>
 				<td>${item.loginIp }</td>
-				<td>${item.crtm }</td>
-				<td>${item.mdtm }</td>
+				<td><fmt:formatDate value="${item.crtm }" pattern="yyyy-MM-dd hh:mm:ss"/></td>
+				<td><fmt:formatDate value="${item.mdtm }" pattern="yyyy-MM-dd hh:mm:ss"/></td>
 				<td class="td-manage"><a title="编辑" href="javascript:;" onclick="admin_edit('管理员编辑','admin-add.html','1','800','500')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a> <a title="删除" href="javascript:;" onclick="admin_del(this,'1')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
 			</tr>
 			</c:forEach>
