@@ -20,5 +20,29 @@
 			user u 
 			LEFT OUTER JOIN role r ON u.`rid`=r.`id`
 			LEFT OUTER JOIN organization o ON u.`ogid`=o.`id`
+		ORDER BY
+			id DESC
+	</select>
+	<select id="selectOne" parameterType="Integer" resultType="zhku.zhou.asset.entity.UserPage">
+		SELECT
+			u.id,
+			r.name role,
+			o.name organization,
+			u.name,
+			u.pwd,
+			u.sex,
+			u.birth,
+			u.phone,
+			u.email,
+			u.login_time loginTime,
+			u.login_ip loginIp,
+			u.crtm,
+			u.mdtm
+		FROM 	
+			user u 
+			LEFT OUTER JOIN role r ON u.`rid`=r.`id`
+			LEFT OUTER JOIN organization o ON u.`ogid`=o.`id`
+		WHERE
+			u.id = #{id}
 	</select>
 </mapper>

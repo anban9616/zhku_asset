@@ -6,4 +6,5 @@ import zhku.zhou.asset.entity.UserPage;
 
 public interface UserPageMapper {
 	public List<UserPage> selectAll();
+	public UserPage selectOne(Integer id);
 }
