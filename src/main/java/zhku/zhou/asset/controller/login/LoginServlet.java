@@ -1,6 +1,7 @@
 package zhku.zhou.asset.controller.login;
 
 
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -13,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import zhku.zhou.asset.entity.User;
 import zhku.zhou.asset.service.login.LoginService;
+import zhku.zhou.asset.utils.IpUtil;
 
 @Controller
 @RequestMapping("/")
@@ -22,13 +24,20 @@ public class LoginServlet {
 	@RequestMapping("/login")
 	public ModelAndView login(HttpServletRequest request,User user) {
 		ModelAndView mav = new ModelAndView();
-		System.out.println("login/user:"+user);
 		List<User> userList;
 		HttpSession session = request.getSession();
 		try {
 			userList = loginService.login(user);
 			//userList.get(0)在获取不到的时候抛出异常
 			User user2 = userList.get(0);
+			user2.setLoginTime(new Date());
+			String ip=IpUtil.getIpAddress(request);
+			user2.setLoginIp(ip);
+			int j = loginService.updateLoginTime(user2);
+			if(j==0)
+				System.out.println("修改登录时间失败！");
+			else
+				System.out.println("修改登录时间成功！");
 			session.setAttribute("user2", user2);
 			mav.setViewName("forward:/WEB-INF/page/index.jsp");
 			return mav;

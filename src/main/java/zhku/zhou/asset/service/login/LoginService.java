@@ -25,4 +25,8 @@ public class LoginService {
 		criteria.andPwdEqualTo(user.getPwd());
 		return userMapper.selectByExample(example);
 	}
+	public int updateLoginTime(User user)
+	{
+		return userMapper.updateByPrimaryKeySelective(user);
+	}
 }

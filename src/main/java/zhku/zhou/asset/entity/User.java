@@ -15,13 +15,13 @@ public class User {
 
     private Short sex;
 
-    private String birth;
+    private Date birth;
 
     private String phone;
 
     private String email;
 
-    private String loginTime;
+    private Date loginTime;
 
     private String loginIp;
 
@@ -77,12 +77,12 @@ public class User {
         this.sex = sex;
     }
 
-    public String getBirth() {
+    public Date getBirth() {
         return birth;
     }
 
-    public void setBirth(String birth) {
-        this.birth = birth == null ? null : birth.trim();
+    public void setBirth(Date birth) {
+        this.birth = birth;
     }
 
     public String getPhone() {
@@ -101,12 +101,12 @@ public class User {
         this.email = email == null ? null : email.trim();
     }
 
-    public String getLoginTime() {
+    public Date getLoginTime() {
         return loginTime;
     }
 
-    public void setLoginTime(String loginTime) {
-        this.loginTime = loginTime == null ? null : loginTime.trim();
+    public void setLoginTime(Date loginTime) {
+        this.loginTime = loginTime;
     }
 
     public String getLoginIp() {

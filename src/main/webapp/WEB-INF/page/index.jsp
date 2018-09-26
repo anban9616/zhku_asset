@@ -49,7 +49,7 @@
 				</dt>
 				<dd>
 					<ul>
-						<li><a data-href="" data-title="用户管理" href="javascript:void(0)">用户管理</a></li>
+						<li><a data-href="${path }/user/list" data-title="用户管理" href="javascript:void(0)">用户管理</a></li>
 						<li><a data-href="" data-title="角色管理" href="javascript:void(0)">角色管理</a></li>
 						<li><a data-href="" data-title="部门管理" href="javascript:void(0)">部门管理</a></li>
 					</ul>
