@@ -16,6 +16,8 @@ import zhku.zhou.asset.entity.Role;
 import zhku.zhou.asset.entity.RoleExample;
 import zhku.zhou.asset.entity.User;
 import zhku.zhou.asset.entity.UserPage;
+import zhku.zhou.asset.entity.UserPageExample;
+import zhku.zhou.asset.entity.UserPageExample.Criteria;
 
 
 @Service
@@ -30,7 +32,8 @@ public class UserService {
 	private UserMapper userMapper;
 	public List<UserPage> getAll()
 	{
-		List<UserPage> list = userPageMapper.selectAll();
+		UserPageExample example = new UserPageExample();
+		List<UserPage> list = userPageMapper.selectByExample(example);
 		return list;
 	}
 	public List<Organization> getOrganizationList() {
@@ -47,7 +50,11 @@ public class UserService {
 		return userMapper.insertSelective(user);
 	}
 	public UserPage SelectOne(Integer id) {
-		UserPage userPage = userPageMapper.selectOne(id);
+		UserPageExample example = new UserPageExample();
+		Criteria criteria = example.createCriteria();
+		criteria.andIdEqualTo(id);
+		List<UserPage> list = userPageMapper.selectByExample(example);
+		UserPage userPage = list.get(0);
 		return userPage;
 	}
 	public int updateOne(User user)
