@@ -22,7 +22,7 @@ public class RoleServlet {
 		ModelAndView modelAndView = new ModelAndView();
 		List<Role> list = roleService.getAll();
 		modelAndView.addObject("list", list);
-		modelAndView.setViewName("/WEB-INF/page/system/system-role.jsp");
+		modelAndView.setViewName("forward:/WEB-INF/page/system/system-role.jsp");
 		return modelAndView;
 	}
 	@RequestMapping("/edit")

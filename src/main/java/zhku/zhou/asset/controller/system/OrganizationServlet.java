@@ -22,6 +22,7 @@ public class OrganizationServlet {
 		ModelAndView modelAndView = new ModelAndView();
 		List<Organization> list = organizationService.getAll();
 		modelAndView.addObject("list", list);
+		modelAndView.setViewName("forward:/WEB-INF/page/system/system-organization.jsp");
 		return modelAndView;
 	}
 	@RequestMapping("/edit")
