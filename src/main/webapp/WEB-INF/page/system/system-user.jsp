@@ -66,8 +66,8 @@
 				<td><fmt:formatDate value="${item.birth }" pattern="yyyy-MM-dd"/></td>
 				<td>${item.phone }</td>
 				<td>${item.email }</td>
-				<td><fmt:formatDate value="${item.loginTime }" pattern="yyyy-MM-dd hh:mm:ss"/></td>
-				<td>${item.loginIp }</td>
+				<td><fmt:formatDate value="${item.logintime }" pattern="yyyy-MM-dd hh:mm:ss"/></td>
+				<td>${item.loginip }</td>
 				<td><fmt:formatDate value="${item.crtm }" pattern="yyyy-MM-dd hh:mm:ss"/></td>
 				<td><fmt:formatDate value="${item.mdtm }" pattern="yyyy-MM-dd hh:mm:ss"/></td>
 				<td class="td-manage"><a title="编辑" href="javascript:;" onclick="admin_edit('管理员编辑','${path}/user/edit?id=${item.id }','800','500')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a> <a title="删除" href="javascript:;" onclick="admin_del(this,${item.id})" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>

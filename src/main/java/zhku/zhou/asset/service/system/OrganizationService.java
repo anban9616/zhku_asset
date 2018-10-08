@@ -1,5 +1,6 @@
 package zhku.zhou.asset.service.system;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,8 @@ public class OrganizationService {
 	}
 
 	public int addOne(Organization organization) {
+		organization.setCrtm(new Date());
+		organization.setMdtm(new Date());
 		return organizationMapper.insertSelective(organization);
 	}
 
