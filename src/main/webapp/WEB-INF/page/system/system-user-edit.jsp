@@ -183,7 +183,11 @@ $(function(){
 				type: 'post',
 				url: "${applicationScope.path }/user/editAfter",
 				success: function(data){
-					layer.msg('添加成功!',{icon:1,time:1000});
+					if(data){
+						layer.msg('修改成功!',{icon:1,time:1000});
+					}else{
+						layer.msg('修改失败!',{icon: 2,time:1000});
+					}
 				},
                 error: function(XmlHttpRequest, textStatus, errorThrown){
 					layer.msg('error!',{icon:2,time:1000});

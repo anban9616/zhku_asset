@@ -22,6 +22,7 @@ public class RoleServlet {
 		ModelAndView modelAndView = new ModelAndView();
 		List<Role> list = roleService.getAll();
 		modelAndView.addObject("list", list);
+		modelAndView.addObject("count", list.size());
 		modelAndView.setViewName("forward:/WEB-INF/page/system/system-role.jsp");
 		return modelAndView;
 	}

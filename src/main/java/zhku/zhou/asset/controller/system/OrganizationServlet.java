@@ -22,6 +22,7 @@ public class OrganizationServlet {
 		ModelAndView modelAndView = new ModelAndView();
 		List<Organization> list = organizationService.getAll();
 		modelAndView.addObject("list", list);
+		modelAndView.addObject("count", list.size());
 		modelAndView.setViewName("forward:/WEB-INF/page/system/system-organization.jsp");
 		return modelAndView;
 	}
@@ -51,6 +52,8 @@ public class OrganizationServlet {
 	@RequestMapping("/addAfter")
 	public int addAfter(Organization organization)
 	{
+		System.out.println("--------------------------->");
+		System.out.println(organization);
 		return organizationService.addOne(organization);
 	}
 	@ResponseBody
