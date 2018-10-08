@@ -1,6 +1,7 @@
 package zhku.zhou.asset.entity;
 
 import java.math.BigDecimal;
+import java.util.Date;
 
 public class DeviceType {
     private Integer id;
@@ -19,9 +20,9 @@ public class DeviceType {
 
     private BigDecimal anrv;
 
-    private String crtm;
+    private Date crtm;
 
-    private String mdtm;
+    private Date mdtm;
 
     public Integer getId() {
         return id;
@@ -87,19 +88,19 @@ public class DeviceType {
         this.anrv = anrv;
     }
 
-    public String getCrtm() {
+    public Date getCrtm() {
         return crtm;
     }
 
-    public void setCrtm(String crtm) {
-        this.crtm = crtm == null ? null : crtm.trim();
+    public void setCrtm(Date crtm) {
+        this.crtm = crtm;
     }
 
-    public String getMdtm() {
+    public Date getMdtm() {
         return mdtm;
     }
 
-    public void setMdtm(String mdtm) {
-        this.mdtm = mdtm == null ? null : mdtm.trim();
+    public void setMdtm(Date mdtm) {
+        this.mdtm = mdtm;
     }
 }

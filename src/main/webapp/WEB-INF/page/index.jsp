@@ -57,66 +57,15 @@
 			</dl>
 			<dl id="">
 				<dt>
-					<i class="Hui-iconfont">&#xe613;</i> 车辆管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i>
-				</dt>
-				<dd>
-					<ul>
-						<li><a data-href="" data-title="车辆登记" href="javascript:void(0)">车辆登记</a></li>
-						<li><a data-href="" data-title="车辆报修" href="javascript:void(0)">车辆报修</a></li>
-						<li><a data-href="" data-title="车辆领取" href="javascript:void(0)">车辆领取</a></li>
-						<li><a data-href="" data-title="车辆类型" href="javascript:void(0)">车辆类型</a></li>
-						<li><a data-href="" data-title="车辆报废" href="javascript:void(0)">车辆报废</a></li>
-					</ul>
-				</dd>
-			</dl>
-			<dl id="">
-				<dt>
 					<i class="Hui-iconfont">&#xe620;</i> 设备管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i>
 				</dt>
 				<dd>
 					<ul>
-						<li><a data-href="" data-title="设备登记" href="javascript:void(0)">设备登记</a></li>
+						<li><a data-href="${path }/device/list" data-title="设备登记" href="javascript:void(0)">设备登记</a></li>
 						<li><a data-href="" data-title="设备报修" href="javascript:void(0)">设备报修</a></li>
 						<li><a data-href="" data-title="设备领取" href="javascript:void(0)">设备领取</a></li>
 						<li><a data-href="" data-title="设备类型" href="javascript:void(0)">设备类型</a></li>
 						<li><a data-href="" data-title="设备报废" href="javascript:void(0)">设备报废</a></li>
-					</ul>
-				</dd>
-			</dl>
-			<dl id="menu-comments">
-				<dt>
-					<i class="Hui-iconfont">&#xe622;</i> 家具图书管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i>
-				</dt>
-				<dd>
-					<ul>
-						<li><a data-href="" data-title="家具图书登记" href="javascript:;">家具图书登记</a></li>
-						<li><a data-href="" data-title="家具图书报修" href="javascript:;">家具图书报修</a></li>
-						<li><a data-href="" data-title="家具图书领取" href="javascript:;">家具图书领取</a></li>
-						<li><a data-href="" data-title="家具图书类型" href="javascript:;">家具图书类型</a></li>
-						<li><a data-href="" data-title="家具图书报废" href="javascript:;">家具图书报废</a></li>
-					</ul>
-				</dd>
-			</dl>
-			<dl id="menu-member">
-				<dt>
-					<i class="Hui-iconfont">&#xe60d;</i> 房屋管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i>
-				</dt>
-				<dd>
-					<ul>
-						<li><a data-href="" data-title="房屋登记" href="javascript:;">房屋登记</a></li>
-						<li><a data-href="" data-title="房屋分配" href="javascript:;">房屋分配</a></li>
-
-					</ul>
-				</dd>
-			</dl>
-			<dl id="menu-admin">
-				<dt>
-					<i class="Hui-iconfont">&#xe62d;</i> 土地管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i>
-				</dt>
-				<dd>
-					<ul>
-						<li><a data-href="admin-role.html" data-title="土地登记" href="javascript:void(0)">土地登记</a></li>
-						<li><a data-href="admin-role.html" data-title="土地分配" href="javascript:void(0)">土地分配</a></li>
 					</ul>
 				</dd>
 			</dl>
