@@ -6,8 +6,6 @@ import java.util.Date;
 public class DevicePage {
     private String code;
 
-    private Date createTime;
-
     private String creator;
 
     private Date crtm;
@@ -36,14 +34,6 @@ public class DevicePage {
 
     public void setCode(String code) {
         this.code = code == null ? null : code.trim();
-    }
-
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
     }
 
     public String getCreator() {

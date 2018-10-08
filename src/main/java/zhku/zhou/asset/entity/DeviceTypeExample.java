@@ -2,6 +2,7 @@ package zhku.zhou.asset.entity;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class DeviceTypeExample {
@@ -645,62 +646,52 @@ public class DeviceTypeExample {
             return (Criteria) this;
         }
 
-        public Criteria andCrtmEqualTo(String value) {
+        public Criteria andCrtmEqualTo(Date value) {
             addCriterion("crtm =", value, "crtm");
             return (Criteria) this;
         }
 
-        public Criteria andCrtmNotEqualTo(String value) {
+        public Criteria andCrtmNotEqualTo(Date value) {
             addCriterion("crtm <>", value, "crtm");
             return (Criteria) this;
         }
 
-        public Criteria andCrtmGreaterThan(String value) {
+        public Criteria andCrtmGreaterThan(Date value) {
             addCriterion("crtm >", value, "crtm");
             return (Criteria) this;
         }
 
-        public Criteria andCrtmGreaterThanOrEqualTo(String value) {
+        public Criteria andCrtmGreaterThanOrEqualTo(Date value) {
             addCriterion("crtm >=", value, "crtm");
             return (Criteria) this;
         }
 
-        public Criteria andCrtmLessThan(String value) {
+        public Criteria andCrtmLessThan(Date value) {
             addCriterion("crtm <", value, "crtm");
             return (Criteria) this;
         }
 
-        public Criteria andCrtmLessThanOrEqualTo(String value) {
+        public Criteria andCrtmLessThanOrEqualTo(Date value) {
             addCriterion("crtm <=", value, "crtm");
             return (Criteria) this;
         }
 
-        public Criteria andCrtmLike(String value) {
-            addCriterion("crtm like", value, "crtm");
-            return (Criteria) this;
-        }
-
-        public Criteria andCrtmNotLike(String value) {
-            addCriterion("crtm not like", value, "crtm");
-            return (Criteria) this;
-        }
-
-        public Criteria andCrtmIn(List<String> values) {
+        public Criteria andCrtmIn(List<Date> values) {
             addCriterion("crtm in", values, "crtm");
             return (Criteria) this;
         }
 
-        public Criteria andCrtmNotIn(List<String> values) {
+        public Criteria andCrtmNotIn(List<Date> values) {
             addCriterion("crtm not in", values, "crtm");
             return (Criteria) this;
         }
 
-        public Criteria andCrtmBetween(String value1, String value2) {
+        public Criteria andCrtmBetween(Date value1, Date value2) {
             addCriterion("crtm between", value1, value2, "crtm");
             return (Criteria) this;
         }
 
-        public Criteria andCrtmNotBetween(String value1, String value2) {
+        public Criteria andCrtmNotBetween(Date value1, Date value2) {
             addCriterion("crtm not between", value1, value2, "crtm");
             return (Criteria) this;
         }
@@ -715,62 +706,52 @@ public class DeviceTypeExample {
             return (Criteria) this;
         }
 
-        public Criteria andMdtmEqualTo(String value) {
+        public Criteria andMdtmEqualTo(Date value) {
             addCriterion("mdtm =", value, "mdtm");
             return (Criteria) this;
         }
 
-        public Criteria andMdtmNotEqualTo(String value) {
+        public Criteria andMdtmNotEqualTo(Date value) {
             addCriterion("mdtm <>", value, "mdtm");
             return (Criteria) this;
         }
 
-        public Criteria andMdtmGreaterThan(String value) {
+        public Criteria andMdtmGreaterThan(Date value) {
             addCriterion("mdtm >", value, "mdtm");
             return (Criteria) this;
         }
 
-        public Criteria andMdtmGreaterThanOrEqualTo(String value) {
+        public Criteria andMdtmGreaterThanOrEqualTo(Date value) {
             addCriterion("mdtm >=", value, "mdtm");
             return (Criteria) this;
         }
 
-        public Criteria andMdtmLessThan(String value) {
+        public Criteria andMdtmLessThan(Date value) {
             addCriterion("mdtm <", value, "mdtm");
             return (Criteria) this;
         }
 
-        public Criteria andMdtmLessThanOrEqualTo(String value) {
+        public Criteria andMdtmLessThanOrEqualTo(Date value) {
             addCriterion("mdtm <=", value, "mdtm");
             return (Criteria) this;
         }
 
-        public Criteria andMdtmLike(String value) {
-            addCriterion("mdtm like", value, "mdtm");
-            return (Criteria) this;
-        }
-
-        public Criteria andMdtmNotLike(String value) {
-            addCriterion("mdtm not like", value, "mdtm");
-            return (Criteria) this;
-        }
-
-        public Criteria andMdtmIn(List<String> values) {
+        public Criteria andMdtmIn(List<Date> values) {
             addCriterion("mdtm in", values, "mdtm");
             return (Criteria) this;
         }
 
-        public Criteria andMdtmNotIn(List<String> values) {
+        public Criteria andMdtmNotIn(List<Date> values) {
             addCriterion("mdtm not in", values, "mdtm");
             return (Criteria) this;
         }
 
-        public Criteria andMdtmBetween(String value1, String value2) {
+        public Criteria andMdtmBetween(Date value1, Date value2) {
             addCriterion("mdtm between", value1, value2, "mdtm");
             return (Criteria) this;
         }
 
-        public Criteria andMdtmNotBetween(String value1, String value2) {
+        public Criteria andMdtmNotBetween(Date value1, Date value2) {
             addCriterion("mdtm not between", value1, value2, "mdtm");
             return (Criteria) this;
         }

@@ -3,7 +3,6 @@
 <mapper namespace="zhku.zhou.asset.dao.DevicePageMapper" >
   <resultMap id="BaseResultMap" type="zhku.zhou.asset.entity.DevicePage" >
     <result column="code" property="code" jdbcType="VARCHAR" />
-    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
     <result column="creator" property="creator" jdbcType="VARCHAR" />
     <result column="crtm" property="crtm" jdbcType="TIMESTAMP" />
     <result column="device_type" property="deviceType" jdbcType="VARCHAR" />
@@ -75,8 +74,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    code, create_time, creator, crtm, device_type, id, mdtm, organization, original, 
-    prod_date, residual, sno, status
+    code, creator, crtm, device_type, id, mdtm, organization, original, prod_date, residual, 
+    sno, status
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="zhku.zhou.asset.entity.DevicePageExample" >
     select
@@ -99,25 +98,22 @@
     </if>
   </delete>
   <insert id="insert" parameterType="zhku.zhou.asset.entity.DevicePage" >
-    insert into device_page (code, create_time, creator, 
-      crtm, device_type, id, 
-      mdtm, organization, original, 
-      prod_date, residual, sno, 
-      status)
-    values (#{code,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{creator,jdbcType=VARCHAR}, 
-      #{crtm,jdbcType=TIMESTAMP}, #{deviceType,jdbcType=VARCHAR}, #{id,jdbcType=INTEGER}, 
-      #{mdtm,jdbcType=TIMESTAMP}, #{organization,jdbcType=VARCHAR}, #{original,jdbcType=DECIMAL}, 
-      #{prodDate,jdbcType=DATE}, #{residual,jdbcType=DECIMAL}, #{sno,jdbcType=VARCHAR}, 
-      #{status,jdbcType=DECIMAL})
+    insert into device_page (code, creator, crtm, 
+      device_type, id, mdtm, 
+      organization, original, prod_date, 
+      residual, sno, status
+      )
+    values (#{code,jdbcType=VARCHAR}, #{creator,jdbcType=VARCHAR}, #{crtm,jdbcType=TIMESTAMP}, 
+      #{deviceType,jdbcType=VARCHAR}, #{id,jdbcType=INTEGER}, #{mdtm,jdbcType=TIMESTAMP}, 
+      #{organization,jdbcType=VARCHAR}, #{original,jdbcType=DECIMAL}, #{prodDate,jdbcType=DATE}, 
+      #{residual,jdbcType=DECIMAL}, #{sno,jdbcType=VARCHAR}, #{status,jdbcType=DECIMAL}
+      )
   </insert>
   <insert id="insertSelective" parameterType="zhku.zhou.asset.entity.DevicePage" >
     insert into device_page
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="code != null" >
         code,
-      </if>
-      <if test="createTime != null" >
-        create_time,
       </if>
       <if test="creator != null" >
         creator,
@@ -156,9 +152,6 @@
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="code != null" >
         #{code,jdbcType=VARCHAR},
-      </if>
-      <if test="createTime != null" >
-        #{createTime,jdbcType=TIMESTAMP},
       </if>
       <if test="creator != null" >
         #{creator,jdbcType=VARCHAR},
@@ -207,9 +200,6 @@
       <if test="record.code != null" >
         code = #{record.code,jdbcType=VARCHAR},
       </if>
-      <if test="record.createTime != null" >
-        create_time = #{record.createTime,jdbcType=TIMESTAMP},
-      </if>
       <if test="record.creator != null" >
         creator = #{record.creator,jdbcType=VARCHAR},
       </if>
@@ -251,7 +241,6 @@
   <update id="updateByExample" parameterType="map" >
     update device_page
     set code = #{record.code,jdbcType=VARCHAR},
-      create_time = #{record.createTime,jdbcType=TIMESTAMP},
       creator = #{record.creator,jdbcType=VARCHAR},
       crtm = #{record.crtm,jdbcType=TIMESTAMP},
       device_type = #{record.deviceType,jdbcType=VARCHAR},

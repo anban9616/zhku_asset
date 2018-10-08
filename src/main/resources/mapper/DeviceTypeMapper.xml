@@ -10,8 +10,8 @@
     <result column="remarks" property="remarks" jdbcType="VARCHAR" />
     <result column="asl" property="asl" jdbcType="DECIMAL" />
     <result column="anrv" property="anrv" jdbcType="DECIMAL" />
-    <result column="crtm" property="crtm" jdbcType="VARCHAR" />
-    <result column="mdtm" property="mdtm" jdbcType="VARCHAR" />
+    <result column="crtm" property="crtm" jdbcType="TIMESTAMP" />
+    <result column="mdtm" property="mdtm" jdbcType="TIMESTAMP" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -107,12 +107,12 @@
   <insert id="insert" parameterType="zhku.zhou.asset.entity.DeviceType" >
     insert into device_type (id, name, brand, 
       intlcode, model, remarks, 
-      asl, anrv, crtm, mdtm
-      )
+      asl, anrv, crtm, 
+      mdtm)
     values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{brand,jdbcType=VARCHAR}, 
       #{intlcode,jdbcType=VARCHAR}, #{model,jdbcType=VARCHAR}, #{remarks,jdbcType=VARCHAR}, 
-      #{asl,jdbcType=DECIMAL}, #{anrv,jdbcType=DECIMAL}, #{crtm,jdbcType=VARCHAR}, #{mdtm,jdbcType=VARCHAR}
-      )
+      #{asl,jdbcType=DECIMAL}, #{anrv,jdbcType=DECIMAL}, #{crtm,jdbcType=TIMESTAMP}, 
+      #{mdtm,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="zhku.zhou.asset.entity.DeviceType" >
     insert into device_type
@@ -174,10 +174,10 @@
         #{anrv,jdbcType=DECIMAL},
       </if>
       <if test="crtm != null" >
-        #{crtm,jdbcType=VARCHAR},
+        #{crtm,jdbcType=TIMESTAMP},
       </if>
       <if test="mdtm != null" >
-        #{mdtm,jdbcType=VARCHAR},
+        #{mdtm,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
@@ -215,10 +215,10 @@
         anrv = #{record.anrv,jdbcType=DECIMAL},
       </if>
       <if test="record.crtm != null" >
-        crtm = #{record.crtm,jdbcType=VARCHAR},
+        crtm = #{record.crtm,jdbcType=TIMESTAMP},
       </if>
       <if test="record.mdtm != null" >
-        mdtm = #{record.mdtm,jdbcType=VARCHAR},
+        mdtm = #{record.mdtm,jdbcType=TIMESTAMP},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -235,8 +235,8 @@
       remarks = #{record.remarks,jdbcType=VARCHAR},
       asl = #{record.asl,jdbcType=DECIMAL},
       anrv = #{record.anrv,jdbcType=DECIMAL},
-      crtm = #{record.crtm,jdbcType=VARCHAR},
-      mdtm = #{record.mdtm,jdbcType=VARCHAR}
+      crtm = #{record.crtm,jdbcType=TIMESTAMP},
+      mdtm = #{record.mdtm,jdbcType=TIMESTAMP}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -266,10 +266,10 @@
         anrv = #{anrv,jdbcType=DECIMAL},
       </if>
       <if test="crtm != null" >
-        crtm = #{crtm,jdbcType=VARCHAR},
+        crtm = #{crtm,jdbcType=TIMESTAMP},
       </if>
       <if test="mdtm != null" >
-        mdtm = #{mdtm,jdbcType=VARCHAR},
+        mdtm = #{mdtm,jdbcType=TIMESTAMP},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
@@ -283,8 +283,8 @@
       remarks = #{remarks,jdbcType=VARCHAR},
       asl = #{asl,jdbcType=DECIMAL},
       anrv = #{anrv,jdbcType=DECIMAL},
-      crtm = #{crtm,jdbcType=VARCHAR},
-      mdtm = #{mdtm,jdbcType=VARCHAR}
+      crtm = #{crtm,jdbcType=TIMESTAMP},
+      mdtm = #{mdtm,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>
