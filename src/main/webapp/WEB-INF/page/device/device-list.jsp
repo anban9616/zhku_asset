@@ -67,7 +67,13 @@
 						<td>${item.residual }</td>
 						<td><fmt:formatDate value="${item.prodDate }" pattern="yyy-MM-dd"/> </td>
 						<td>${item.sno }</td>
-						<td>${item.status }</td>
+						<td>
+							<c:if test="${item.status == 1}">入库</c:if>
+							<c:if test="${item.status == 2}">出库中</c:if>
+							<c:if test="${item.status == 3}">出库</c:if>
+							<c:if test="${item.status == 4}">领用</c:if>
+							<c:if test="${item.status == 5}">报修</c:if>
+						</td>
 						<td class="td-manage"><a title="编辑" href="javascript:;" onclick="admin_edit('设备编辑','${path}/device/edit?id=${item.id }','800','500')" class="ml-5"
 							style="text-decoration: none"><i class="Hui-iconfont">&#xe6df;</i></a> <a title="删除" href="javascript:;" onclick="admin_del(this,${item.id})"
 							class="ml-5" style="text-decoration: none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
