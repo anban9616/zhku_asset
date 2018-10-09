@@ -22,12 +22,6 @@ public class Device {
 
     private Integer creator;
 
-    private Date createTime;
-
-    private Integer buyer;
-
-    private Date buyDate;
-
     private String sno;
 
     private Date crtm;
@@ -104,30 +98,6 @@ public class Device {
 
     public void setCreator(Integer creator) {
         this.creator = creator;
-    }
-
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
-
-    public Integer getBuyer() {
-        return buyer;
-    }
-
-    public void setBuyer(Integer buyer) {
-        this.buyer = buyer;
-    }
-
-    public Date getBuyDate() {
-        return buyDate;
-    }
-
-    public void setBuyDate(Date buyDate) {
-        this.buyDate = buyDate;
     }
 
     public String getSno() {

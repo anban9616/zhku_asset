@@ -11,9 +11,6 @@
     <result column="status" property="status" jdbcType="DECIMAL" />
     <result column="prod_date" property="prodDate" jdbcType="DATE" />
     <result column="creator" property="creator" jdbcType="INTEGER" />
-    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
-    <result column="buyer" property="buyer" jdbcType="INTEGER" />
-    <result column="buy_date" property="buyDate" jdbcType="DATE" />
     <result column="sno" property="sno" jdbcType="VARCHAR" />
     <result column="crtm" property="crtm" jdbcType="TIMESTAMP" />
     <result column="mdtm" property="mdtm" jdbcType="TIMESTAMP" />
@@ -77,8 +74,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, ogid, dtid, code, residual, original, status, prod_date, creator, create_time, 
-    buyer, buy_date, sno, crtm, mdtm
+    id, ogid, dtid, code, residual, original, status, prod_date, creator, sno, crtm, 
+    mdtm
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="zhku.zhou.asset.entity.DeviceExample" >
     select
@@ -114,13 +111,11 @@
     insert into device (id, ogid, dtid, 
       code, residual, original, 
       status, prod_date, creator, 
-      create_time, buyer, buy_date, 
       sno, crtm, mdtm
       )
     values (#{id,jdbcType=INTEGER}, #{ogid,jdbcType=INTEGER}, #{dtid,jdbcType=INTEGER}, 
       #{code,jdbcType=VARCHAR}, #{residual,jdbcType=DECIMAL}, #{original,jdbcType=DECIMAL}, 
       #{status,jdbcType=DECIMAL}, #{prodDate,jdbcType=DATE}, #{creator,jdbcType=INTEGER}, 
-      #{createTime,jdbcType=TIMESTAMP}, #{buyer,jdbcType=INTEGER}, #{buyDate,jdbcType=DATE}, 
       #{sno,jdbcType=VARCHAR}, #{crtm,jdbcType=TIMESTAMP}, #{mdtm,jdbcType=TIMESTAMP}
       )
   </insert>
@@ -153,15 +148,6 @@
       </if>
       <if test="creator != null" >
         creator,
-      </if>
-      <if test="createTime != null" >
-        create_time,
-      </if>
-      <if test="buyer != null" >
-        buyer,
-      </if>
-      <if test="buyDate != null" >
-        buy_date,
       </if>
       <if test="sno != null" >
         sno,
@@ -200,15 +186,6 @@
       </if>
       <if test="creator != null" >
         #{creator,jdbcType=INTEGER},
-      </if>
-      <if test="createTime != null" >
-        #{createTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="buyer != null" >
-        #{buyer,jdbcType=INTEGER},
-      </if>
-      <if test="buyDate != null" >
-        #{buyDate,jdbcType=DATE},
       </if>
       <if test="sno != null" >
         #{sno,jdbcType=VARCHAR},
@@ -257,15 +234,6 @@
       <if test="record.creator != null" >
         creator = #{record.creator,jdbcType=INTEGER},
       </if>
-      <if test="record.createTime != null" >
-        create_time = #{record.createTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="record.buyer != null" >
-        buyer = #{record.buyer,jdbcType=INTEGER},
-      </if>
-      <if test="record.buyDate != null" >
-        buy_date = #{record.buyDate,jdbcType=DATE},
-      </if>
       <if test="record.sno != null" >
         sno = #{record.sno,jdbcType=VARCHAR},
       </if>
@@ -291,9 +259,6 @@
       status = #{record.status,jdbcType=DECIMAL},
       prod_date = #{record.prodDate,jdbcType=DATE},
       creator = #{record.creator,jdbcType=INTEGER},
-      create_time = #{record.createTime,jdbcType=TIMESTAMP},
-      buyer = #{record.buyer,jdbcType=INTEGER},
-      buy_date = #{record.buyDate,jdbcType=DATE},
       sno = #{record.sno,jdbcType=VARCHAR},
       crtm = #{record.crtm,jdbcType=TIMESTAMP},
       mdtm = #{record.mdtm,jdbcType=TIMESTAMP}
@@ -328,15 +293,6 @@
       <if test="creator != null" >
         creator = #{creator,jdbcType=INTEGER},
       </if>
-      <if test="createTime != null" >
-        create_time = #{createTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="buyer != null" >
-        buyer = #{buyer,jdbcType=INTEGER},
-      </if>
-      <if test="buyDate != null" >
-        buy_date = #{buyDate,jdbcType=DATE},
-      </if>
       <if test="sno != null" >
         sno = #{sno,jdbcType=VARCHAR},
       </if>
@@ -359,9 +315,6 @@
       status = #{status,jdbcType=DECIMAL},
       prod_date = #{prodDate,jdbcType=DATE},
       creator = #{creator,jdbcType=INTEGER},
-      create_time = #{createTime,jdbcType=TIMESTAMP},
-      buyer = #{buyer,jdbcType=INTEGER},
-      buy_date = #{buyDate,jdbcType=DATE},
       sno = #{sno,jdbcType=VARCHAR},
       crtm = #{crtm,jdbcType=TIMESTAMP},
       mdtm = #{mdtm,jdbcType=TIMESTAMP}
