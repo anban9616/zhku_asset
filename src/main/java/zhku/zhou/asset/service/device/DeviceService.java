@@ -24,6 +24,14 @@ public class DeviceService {
 		DevicePageExample example = new DevicePageExample();
 		return devicePageMapper.selectByExample(example);
 	}
+	public List<Device> selectAll2()
+	{
+		DeviceExample example = new DeviceExample();
+		Criteria criteria = example.createCriteria();
+		//选择在库存中的设备报修
+		criteria.andStatusEqualTo((short) 1);
+		return deviceMapper.selectByExample(example);
+	}
 	public int addOne(Device device)
 	{
 		return deviceMapper.insertSelective(device);
