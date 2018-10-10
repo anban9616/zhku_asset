@@ -18,4 +18,20 @@ public class DeviceTypeService {
 		DeviceTypeExample example = new DeviceTypeExample();
 		return deviceTypeMapper.selectByExample(example);
 	}
+	public int addOne(DeviceType deviceType)
+	{
+		return deviceTypeMapper.insertSelective(deviceType);
+	}
+	public int deleteOne(int id)
+	{
+		return deviceTypeMapper.deleteByPrimaryKey(id);
+	}
+	public DeviceType selectOne(int id)
+	{
+		return deviceTypeMapper.selectByPrimaryKey(id);
+	}
+	public int updateOne(DeviceType deviceType)
+	{
+		return deviceTypeMapper.updateByPrimaryKeySelective(deviceType);
+	}
 }
