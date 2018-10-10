@@ -64,7 +64,7 @@
 						<li><a data-href="${path }/device/list" data-title="设备登记" href="javascript:void(0)">设备登记</a></li>
 						<li><a data-href="" data-title="设备报修" href="javascript:void(0)">设备报修</a></li>
 						<li><a data-href="" data-title="设备领取" href="javascript:void(0)">设备领取</a></li>
-						<li><a data-href="" data-title="设备类型" href="javascript:void(0)">设备类型</a></li>
+						<li><a data-href="${path }/deviceType/list" data-title="设备类型" href="javascript:void(0)">设备类型</a></li>
 						<li><a data-href="" data-title="设备报废" href="javascript:void(0)">设备报废</a></li>
 					</ul>
 				</dd>
