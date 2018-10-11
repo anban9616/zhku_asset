@@ -28,7 +28,7 @@ public class DeviceService {
 	{
 		DeviceExample example = new DeviceExample();
 		Criteria criteria = example.createCriteria();
-		//选择在库存中的设备报修
+		//选择在库存中的设备
 		criteria.andStatusEqualTo((short) 1);
 		return deviceMapper.selectByExample(example);
 	}

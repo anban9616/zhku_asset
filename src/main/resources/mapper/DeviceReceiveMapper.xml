@@ -5,7 +5,7 @@
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="did" property="did" jdbcType="INTEGER" />
     <result column="code" property="code" jdbcType="VARCHAR" />
-    <result column="recipients" property="recipients" jdbcType="VARCHAR" />
+    <result column="uid" property="uid" jdbcType="INTEGER" />
     <result column="receive_date" property="receiveDate" jdbcType="TIMESTAMP" />
     <result column="return_date" property="returnDate" jdbcType="TIMESTAMP" />
     <result column="status" property="status" jdbcType="DECIMAL" />
@@ -73,8 +73,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, did, code, recipients, receive_date, return_date, status, rc_remarks, rt_remarks, 
-    crtm, mdtm
+    id, did, code, uid, receive_date, return_date, status, rc_remarks, rt_remarks, crtm, 
+    mdtm
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="zhku.zhou.asset.entity.DeviceReceiveExample" >
     select
@@ -108,11 +108,11 @@
   </delete>
   <insert id="insert" parameterType="zhku.zhou.asset.entity.DeviceReceive" >
     insert into device_receive (id, did, code, 
-      recipients, receive_date, return_date, 
+      uid, receive_date, return_date, 
       status, rc_remarks, rt_remarks, 
       crtm, mdtm)
     values (#{id,jdbcType=INTEGER}, #{did,jdbcType=INTEGER}, #{code,jdbcType=VARCHAR}, 
-      #{recipients,jdbcType=VARCHAR}, #{receiveDate,jdbcType=TIMESTAMP}, #{returnDate,jdbcType=TIMESTAMP}, 
+      #{uid,jdbcType=INTEGER}, #{receiveDate,jdbcType=TIMESTAMP}, #{returnDate,jdbcType=TIMESTAMP}, 
       #{status,jdbcType=DECIMAL}, #{rcRemarks,jdbcType=VARCHAR}, #{rtRemarks,jdbcType=VARCHAR}, 
       #{crtm,jdbcType=TIMESTAMP}, #{mdtm,jdbcType=TIMESTAMP})
   </insert>
@@ -128,8 +128,8 @@
       <if test="code != null" >
         code,
       </if>
-      <if test="recipients != null" >
-        recipients,
+      <if test="uid != null" >
+        uid,
       </if>
       <if test="receiveDate != null" >
         receive_date,
@@ -163,8 +163,8 @@
       <if test="code != null" >
         #{code,jdbcType=VARCHAR},
       </if>
-      <if test="recipients != null" >
-        #{recipients,jdbcType=VARCHAR},
+      <if test="uid != null" >
+        #{uid,jdbcType=INTEGER},
       </if>
       <if test="receiveDate != null" >
         #{receiveDate,jdbcType=TIMESTAMP},
@@ -207,8 +207,8 @@
       <if test="record.code != null" >
         code = #{record.code,jdbcType=VARCHAR},
       </if>
-      <if test="record.recipients != null" >
-        recipients = #{record.recipients,jdbcType=VARCHAR},
+      <if test="record.uid != null" >
+        uid = #{record.uid,jdbcType=INTEGER},
       </if>
       <if test="record.receiveDate != null" >
         receive_date = #{record.receiveDate,jdbcType=TIMESTAMP},
@@ -241,7 +241,7 @@
     set id = #{record.id,jdbcType=INTEGER},
       did = #{record.did,jdbcType=INTEGER},
       code = #{record.code,jdbcType=VARCHAR},
-      recipients = #{record.recipients,jdbcType=VARCHAR},
+      uid = #{record.uid,jdbcType=INTEGER},
       receive_date = #{record.receiveDate,jdbcType=TIMESTAMP},
       return_date = #{record.returnDate,jdbcType=TIMESTAMP},
       status = #{record.status,jdbcType=DECIMAL},
@@ -262,8 +262,8 @@
       <if test="code != null" >
         code = #{code,jdbcType=VARCHAR},
       </if>
-      <if test="recipients != null" >
-        recipients = #{recipients,jdbcType=VARCHAR},
+      <if test="uid != null" >
+        uid = #{uid,jdbcType=INTEGER},
       </if>
       <if test="receiveDate != null" >
         receive_date = #{receiveDate,jdbcType=TIMESTAMP},
@@ -293,7 +293,7 @@
     update device_receive
     set did = #{did,jdbcType=INTEGER},
       code = #{code,jdbcType=VARCHAR},
-      recipients = #{recipients,jdbcType=VARCHAR},
+      uid = #{uid,jdbcType=INTEGER},
       receive_date = #{receiveDate,jdbcType=TIMESTAMP},
       return_date = #{returnDate,jdbcType=TIMESTAMP},
       status = #{status,jdbcType=DECIMAL},

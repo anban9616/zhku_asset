@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="zhku.zhou.asset.dao.DeviceReceiveMapper" >
-  <resultMap id="BaseResultMap" type="zhku.zhou.asset.entity.DeviceReceive" >
-    <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="did" property="did" jdbcType="INTEGER" />
-    <result column="code" property="code" jdbcType="VARCHAR" />
-    <result column="uid" property="uid" jdbcType="INTEGER" />
+<mapper namespace="zhku.zhou.asset.dao.DeviceReceivePageMapper" >
+  <resultMap id="BaseResultMap" type="zhku.zhou.asset.entity.DeviceReceivePage" >
+    <result column="id" property="id" jdbcType="INTEGER" />
+    <result column="dcode" property="dcode" jdbcType="VARCHAR" />
+    <result column="drcode" property="drcode" jdbcType="VARCHAR" />
+    <result column="username" property="username" jdbcType="VARCHAR" />
     <result column="receive_date" property="receiveDate" jdbcType="TIMESTAMP" />
     <result column="return_date" property="returnDate" jdbcType="TIMESTAMP" />
     <result column="status" property="status" jdbcType="DECIMAL" />
@@ -73,16 +73,16 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, did, code, uid, receive_date, return_date, status, rc_remarks, rt_remarks, crtm, 
-    mdtm
+    id, dcode, drcode, username, receive_date, return_date, status, rc_remarks, rt_remarks, 
+    crtm, mdtm
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="zhku.zhou.asset.entity.DeviceReceiveExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="zhku.zhou.asset.entity.DeviceReceivePageExample" >
     select
     <if test="distinct" >
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from device_receive
+    from device_receive_page
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
@@ -90,46 +90,36 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select 
-    <include refid="Base_Column_List" />
-    from device_receive
-    where id = #{id,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from device_receive
-    where id = #{id,jdbcType=INTEGER}
-  </delete>
-  <delete id="deleteByExample" parameterType="zhku.zhou.asset.entity.DeviceReceiveExample" >
-    delete from device_receive
+  <delete id="deleteByExample" parameterType="zhku.zhou.asset.entity.DeviceReceivePageExample" >
+    delete from device_receive_page
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="zhku.zhou.asset.entity.DeviceReceive" >
-    insert into device_receive (id, did, code, 
-      uid, receive_date, return_date, 
+  <insert id="insert" parameterType="zhku.zhou.asset.entity.DeviceReceivePage" >
+    insert into device_receive_page (id, dcode, drcode, 
+      username, receive_date, return_date, 
       status, rc_remarks, rt_remarks, 
       crtm, mdtm)
-    values (#{id,jdbcType=INTEGER}, #{did,jdbcType=INTEGER}, #{code,jdbcType=VARCHAR}, 
-      #{uid,jdbcType=INTEGER}, #{receiveDate,jdbcType=TIMESTAMP}, #{returnDate,jdbcType=TIMESTAMP}, 
+    values (#{id,jdbcType=INTEGER}, #{dcode,jdbcType=VARCHAR}, #{drcode,jdbcType=VARCHAR}, 
+      #{username,jdbcType=VARCHAR}, #{receiveDate,jdbcType=TIMESTAMP}, #{returnDate,jdbcType=TIMESTAMP}, 
       #{status,jdbcType=DECIMAL}, #{rcRemarks,jdbcType=VARCHAR}, #{rtRemarks,jdbcType=VARCHAR}, 
       #{crtm,jdbcType=TIMESTAMP}, #{mdtm,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="zhku.zhou.asset.entity.DeviceReceive" >
-    insert into device_receive
+  <insert id="insertSelective" parameterType="zhku.zhou.asset.entity.DeviceReceivePage" >
+    insert into device_receive_page
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         id,
       </if>
-      <if test="did != null" >
-        did,
+      <if test="dcode != null" >
+        dcode,
       </if>
-      <if test="code != null" >
-        code,
+      <if test="drcode != null" >
+        drcode,
       </if>
-      <if test="uid != null" >
-        uid,
+      <if test="username != null" >
+        username,
       </if>
       <if test="receiveDate != null" >
         receive_date,
@@ -157,14 +147,14 @@
       <if test="id != null" >
         #{id,jdbcType=INTEGER},
       </if>
-      <if test="did != null" >
-        #{did,jdbcType=INTEGER},
+      <if test="dcode != null" >
+        #{dcode,jdbcType=VARCHAR},
       </if>
-      <if test="code != null" >
-        #{code,jdbcType=VARCHAR},
+      <if test="drcode != null" >
+        #{drcode,jdbcType=VARCHAR},
       </if>
-      <if test="uid != null" >
-        #{uid,jdbcType=INTEGER},
+      <if test="username != null" >
+        #{username,jdbcType=VARCHAR},
       </if>
       <if test="receiveDate != null" >
         #{receiveDate,jdbcType=TIMESTAMP},
@@ -189,26 +179,26 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="zhku.zhou.asset.entity.DeviceReceiveExample" resultType="java.lang.Integer" >
-    select count(*) from device_receive
+  <select id="countByExample" parameterType="zhku.zhou.asset.entity.DeviceReceivePageExample" resultType="java.lang.Integer" >
+    select count(*) from device_receive_page
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map" >
-    update device_receive
+    update device_receive_page
     <set >
       <if test="record.id != null" >
         id = #{record.id,jdbcType=INTEGER},
       </if>
-      <if test="record.did != null" >
-        did = #{record.did,jdbcType=INTEGER},
+      <if test="record.dcode != null" >
+        dcode = #{record.dcode,jdbcType=VARCHAR},
       </if>
-      <if test="record.code != null" >
-        code = #{record.code,jdbcType=VARCHAR},
+      <if test="record.drcode != null" >
+        drcode = #{record.drcode,jdbcType=VARCHAR},
       </if>
-      <if test="record.uid != null" >
-        uid = #{record.uid,jdbcType=INTEGER},
+      <if test="record.username != null" >
+        username = #{record.username,jdbcType=VARCHAR},
       </if>
       <if test="record.receiveDate != null" >
         receive_date = #{record.receiveDate,jdbcType=TIMESTAMP},
@@ -237,11 +227,11 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map" >
-    update device_receive
+    update device_receive_page
     set id = #{record.id,jdbcType=INTEGER},
-      did = #{record.did,jdbcType=INTEGER},
-      code = #{record.code,jdbcType=VARCHAR},
-      uid = #{record.uid,jdbcType=INTEGER},
+      dcode = #{record.dcode,jdbcType=VARCHAR},
+      drcode = #{record.drcode,jdbcType=VARCHAR},
+      username = #{record.username,jdbcType=VARCHAR},
       receive_date = #{record.receiveDate,jdbcType=TIMESTAMP},
       return_date = #{record.returnDate,jdbcType=TIMESTAMP},
       status = #{record.status,jdbcType=DECIMAL},
@@ -252,55 +242,5 @@
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
-  </update>
-  <update id="updateByPrimaryKeySelective" parameterType="zhku.zhou.asset.entity.DeviceReceive" >
-    update device_receive
-    <set >
-      <if test="did != null" >
-        did = #{did,jdbcType=INTEGER},
-      </if>
-      <if test="code != null" >
-        code = #{code,jdbcType=VARCHAR},
-      </if>
-      <if test="uid != null" >
-        uid = #{uid,jdbcType=INTEGER},
-      </if>
-      <if test="receiveDate != null" >
-        receive_date = #{receiveDate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="returnDate != null" >
-        return_date = #{returnDate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="status != null" >
-        status = #{status,jdbcType=DECIMAL},
-      </if>
-      <if test="rcRemarks != null" >
-        rc_remarks = #{rcRemarks,jdbcType=VARCHAR},
-      </if>
-      <if test="rtRemarks != null" >
-        rt_remarks = #{rtRemarks,jdbcType=VARCHAR},
-      </if>
-      <if test="crtm != null" >
-        crtm = #{crtm,jdbcType=TIMESTAMP},
-      </if>
-      <if test="mdtm != null" >
-        mdtm = #{mdtm,jdbcType=TIMESTAMP},
-      </if>
-    </set>
-    where id = #{id,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="zhku.zhou.asset.entity.DeviceReceive" >
-    update device_receive
-    set did = #{did,jdbcType=INTEGER},
-      code = #{code,jdbcType=VARCHAR},
-      uid = #{uid,jdbcType=INTEGER},
-      receive_date = #{receiveDate,jdbcType=TIMESTAMP},
-      return_date = #{returnDate,jdbcType=TIMESTAMP},
-      status = #{status,jdbcType=DECIMAL},
-      rc_remarks = #{rcRemarks,jdbcType=VARCHAR},
-      rt_remarks = #{rtRemarks,jdbcType=VARCHAR},
-      crtm = #{crtm,jdbcType=TIMESTAMP},
-      mdtm = #{mdtm,jdbcType=TIMESTAMP}
-    where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

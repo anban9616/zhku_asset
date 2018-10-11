@@ -35,7 +35,7 @@
 		</div>
 	</div>
 	<div class="row cl">
-		<label class="form-label col-xs-4 col-sm-3"><span class="c-red"></span>净残值：</label>
+		<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>净残值：</label>
 		<div class="formControls col-xs-8 col-sm-9">
 			<input type="text" class="input-text" value="" placeholder="" id="residual" name="residual">
 		</div>
@@ -114,10 +114,17 @@ $(function(){
 				maxlength: 10
 			},
 			original:{
+				number:true,
+				required:true,
+				maxlength: 10
+			},
+			residual:{
+				number:true,
 				required:true,
 				maxlength: 10
 			},
 			prodDateStr:{
+				 date:true,
 				required:true,
 			},
 			

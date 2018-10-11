@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="zhku.zhou.asset.dao.SelectMaxIdMapper" >
+  <select id="deviceReceiveMaxId" resultType="zhku.zhou.asset.entity.DeviceReceive">
+  	SELECT * 
+  		FROM device_receive 
+  		WHERE id = (SELECT MAX(id) FROM device_receive)
+  </select>
+</mapper>

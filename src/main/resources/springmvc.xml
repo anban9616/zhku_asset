@@ -57,7 +57,13 @@
 	<!-- 声明一个sqlSessionFactory -->
 	<bean id="sqlSessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="druidDataSource"></property>
-		<property name="mapperLocations" value="classpath:mapper/*.xml"></property>
+		<property name="mapperLocations">
+			<!-- 多个mapper路径用array数组 -->
+			<array>
+				<value>classpath:mapper/*.xml</value>
+				<value>classpath:myMapper/*.xml</value>
+			</array>
+		</property>
 		<property name="configLocation" value="classpath:mybatis.xml"></property>
 	</bean>
 	<!-- 配置mapper路径 -->
