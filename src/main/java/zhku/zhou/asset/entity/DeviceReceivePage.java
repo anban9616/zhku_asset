@@ -2,14 +2,14 @@ package zhku.zhou.asset.entity;
 
 import java.util.Date;
 
-public class DeviceReceive {
+public class DeviceReceivePage {
     private Integer id;
 
-    private Integer did;
+    private String dcode;
 
-    private String code;
+    private String drcode;
 
-    private Integer uid;
+    private String username;
 
     private Date receiveDate;
 
@@ -33,28 +33,28 @@ public class DeviceReceive {
         this.id = id;
     }
 
-    public Integer getDid() {
-        return did;
+    public String getDcode() {
+        return dcode;
     }
 
-    public void setDid(Integer did) {
-        this.did = did;
+    public void setDcode(String dcode) {
+        this.dcode = dcode == null ? null : dcode.trim();
     }
 
-    public String getCode() {
-        return code;
+    public String getDrcode() {
+        return drcode;
     }
 
-    public void setCode(String code) {
-        this.code = code == null ? null : code.trim();
+    public void setDrcode(String drcode) {
+        this.drcode = drcode == null ? null : drcode.trim();
     }
 
-    public Integer getUid() {
-        return uid;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUid(Integer uid) {
-        this.uid = uid;
+    public void setUsername(String username) {
+        this.username = username == null ? null : username.trim();
     }
 
     public Date getReceiveDate() {

@@ -4,14 +4,14 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class DeviceReceiveExample {
+public class DeviceRepairPageExample {
     protected String orderByClause;
 
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
 
-    public DeviceReceiveExample() {
+    public DeviceRepairPageExample() {
         oredCriteria = new ArrayList<Criteria>();
     }
 
@@ -165,66 +165,6 @@ public class DeviceReceiveExample {
             return (Criteria) this;
         }
 
-        public Criteria andDidIsNull() {
-            addCriterion("did is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andDidIsNotNull() {
-            addCriterion("did is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andDidEqualTo(Integer value) {
-            addCriterion("did =", value, "did");
-            return (Criteria) this;
-        }
-
-        public Criteria andDidNotEqualTo(Integer value) {
-            addCriterion("did <>", value, "did");
-            return (Criteria) this;
-        }
-
-        public Criteria andDidGreaterThan(Integer value) {
-            addCriterion("did >", value, "did");
-            return (Criteria) this;
-        }
-
-        public Criteria andDidGreaterThanOrEqualTo(Integer value) {
-            addCriterion("did >=", value, "did");
-            return (Criteria) this;
-        }
-
-        public Criteria andDidLessThan(Integer value) {
-            addCriterion("did <", value, "did");
-            return (Criteria) this;
-        }
-
-        public Criteria andDidLessThanOrEqualTo(Integer value) {
-            addCriterion("did <=", value, "did");
-            return (Criteria) this;
-        }
-
-        public Criteria andDidIn(List<Integer> values) {
-            addCriterion("did in", values, "did");
-            return (Criteria) this;
-        }
-
-        public Criteria andDidNotIn(List<Integer> values) {
-            addCriterion("did not in", values, "did");
-            return (Criteria) this;
-        }
-
-        public Criteria andDidBetween(Integer value1, Integer value2) {
-            addCriterion("did between", value1, value2, "did");
-            return (Criteria) this;
-        }
-
-        public Criteria andDidNotBetween(Integer value1, Integer value2) {
-            addCriterion("did not between", value1, value2, "did");
-            return (Criteria) this;
-        }
-
         public Criteria andCodeIsNull() {
             addCriterion("code is null");
             return (Criteria) this;
@@ -295,183 +235,403 @@ public class DeviceReceiveExample {
             return (Criteria) this;
         }
 
-        public Criteria andUidIsNull() {
-            addCriterion("uid is null");
+        public Criteria andDamagerIsNull() {
+            addCriterion("damager is null");
             return (Criteria) this;
         }
 
-        public Criteria andUidIsNotNull() {
-            addCriterion("uid is not null");
+        public Criteria andDamagerIsNotNull() {
+            addCriterion("damager is not null");
             return (Criteria) this;
         }
 
-        public Criteria andUidEqualTo(Integer value) {
-            addCriterion("uid =", value, "uid");
+        public Criteria andDamagerEqualTo(String value) {
+            addCriterion("damager =", value, "damager");
             return (Criteria) this;
         }
 
-        public Criteria andUidNotEqualTo(Integer value) {
-            addCriterion("uid <>", value, "uid");
+        public Criteria andDamagerNotEqualTo(String value) {
+            addCriterion("damager <>", value, "damager");
             return (Criteria) this;
         }
 
-        public Criteria andUidGreaterThan(Integer value) {
-            addCriterion("uid >", value, "uid");
+        public Criteria andDamagerGreaterThan(String value) {
+            addCriterion("damager >", value, "damager");
             return (Criteria) this;
         }
 
-        public Criteria andUidGreaterThanOrEqualTo(Integer value) {
-            addCriterion("uid >=", value, "uid");
+        public Criteria andDamagerGreaterThanOrEqualTo(String value) {
+            addCriterion("damager >=", value, "damager");
             return (Criteria) this;
         }
 
-        public Criteria andUidLessThan(Integer value) {
-            addCriterion("uid <", value, "uid");
+        public Criteria andDamagerLessThan(String value) {
+            addCriterion("damager <", value, "damager");
             return (Criteria) this;
         }
 
-        public Criteria andUidLessThanOrEqualTo(Integer value) {
-            addCriterion("uid <=", value, "uid");
+        public Criteria andDamagerLessThanOrEqualTo(String value) {
+            addCriterion("damager <=", value, "damager");
             return (Criteria) this;
         }
 
-        public Criteria andUidIn(List<Integer> values) {
-            addCriterion("uid in", values, "uid");
+        public Criteria andDamagerLike(String value) {
+            addCriterion("damager like", value, "damager");
             return (Criteria) this;
         }
 
-        public Criteria andUidNotIn(List<Integer> values) {
-            addCriterion("uid not in", values, "uid");
+        public Criteria andDamagerNotLike(String value) {
+            addCriterion("damager not like", value, "damager");
             return (Criteria) this;
         }
 
-        public Criteria andUidBetween(Integer value1, Integer value2) {
-            addCriterion("uid between", value1, value2, "uid");
+        public Criteria andDamagerIn(List<String> values) {
+            addCriterion("damager in", values, "damager");
             return (Criteria) this;
         }
 
-        public Criteria andUidNotBetween(Integer value1, Integer value2) {
-            addCriterion("uid not between", value1, value2, "uid");
+        public Criteria andDamagerNotIn(List<String> values) {
+            addCriterion("damager not in", values, "damager");
             return (Criteria) this;
         }
 
-        public Criteria andReceiveDateIsNull() {
-            addCriterion("receive_date is null");
+        public Criteria andDamagerBetween(String value1, String value2) {
+            addCriterion("damager between", value1, value2, "damager");
             return (Criteria) this;
         }
 
-        public Criteria andReceiveDateIsNotNull() {
-            addCriterion("receive_date is not null");
+        public Criteria andDamagerNotBetween(String value1, String value2) {
+            addCriterion("damager not between", value1, value2, "damager");
             return (Criteria) this;
         }
 
-        public Criteria andReceiveDateEqualTo(Date value) {
-            addCriterion("receive_date =", value, "receiveDate");
+        public Criteria andDamageDateIsNull() {
+            addCriterion("damage_date is null");
             return (Criteria) this;
         }
 
-        public Criteria andReceiveDateNotEqualTo(Date value) {
-            addCriterion("receive_date <>", value, "receiveDate");
+        public Criteria andDamageDateIsNotNull() {
+            addCriterion("damage_date is not null");
             return (Criteria) this;
         }
 
-        public Criteria andReceiveDateGreaterThan(Date value) {
-            addCriterion("receive_date >", value, "receiveDate");
+        public Criteria andDamageDateEqualTo(Date value) {
+            addCriterion("damage_date =", value, "damageDate");
             return (Criteria) this;
         }
 
-        public Criteria andReceiveDateGreaterThanOrEqualTo(Date value) {
-            addCriterion("receive_date >=", value, "receiveDate");
+        public Criteria andDamageDateNotEqualTo(Date value) {
+            addCriterion("damage_date <>", value, "damageDate");
             return (Criteria) this;
         }
 
-        public Criteria andReceiveDateLessThan(Date value) {
-            addCriterion("receive_date <", value, "receiveDate");
+        public Criteria andDamageDateGreaterThan(Date value) {
+            addCriterion("damage_date >", value, "damageDate");
             return (Criteria) this;
         }
 
-        public Criteria andReceiveDateLessThanOrEqualTo(Date value) {
-            addCriterion("receive_date <=", value, "receiveDate");
+        public Criteria andDamageDateGreaterThanOrEqualTo(Date value) {
+            addCriterion("damage_date >=", value, "damageDate");
             return (Criteria) this;
         }
 
-        public Criteria andReceiveDateIn(List<Date> values) {
-            addCriterion("receive_date in", values, "receiveDate");
+        public Criteria andDamageDateLessThan(Date value) {
+            addCriterion("damage_date <", value, "damageDate");
             return (Criteria) this;
         }
 
-        public Criteria andReceiveDateNotIn(List<Date> values) {
-            addCriterion("receive_date not in", values, "receiveDate");
+        public Criteria andDamageDateLessThanOrEqualTo(Date value) {
+            addCriterion("damage_date <=", value, "damageDate");
             return (Criteria) this;
         }
 
-        public Criteria andReceiveDateBetween(Date value1, Date value2) {
-            addCriterion("receive_date between", value1, value2, "receiveDate");
+        public Criteria andDamageDateIn(List<Date> values) {
+            addCriterion("damage_date in", values, "damageDate");
             return (Criteria) this;
         }
 
-        public Criteria andReceiveDateNotBetween(Date value1, Date value2) {
-            addCriterion("receive_date not between", value1, value2, "receiveDate");
+        public Criteria andDamageDateNotIn(List<Date> values) {
+            addCriterion("damage_date not in", values, "damageDate");
             return (Criteria) this;
         }
 
-        public Criteria andReturnDateIsNull() {
-            addCriterion("return_date is null");
+        public Criteria andDamageDateBetween(Date value1, Date value2) {
+            addCriterion("damage_date between", value1, value2, "damageDate");
             return (Criteria) this;
         }
 
-        public Criteria andReturnDateIsNotNull() {
-            addCriterion("return_date is not null");
+        public Criteria andDamageDateNotBetween(Date value1, Date value2) {
+            addCriterion("damage_date not between", value1, value2, "damageDate");
             return (Criteria) this;
         }
 
-        public Criteria andReturnDateEqualTo(Date value) {
-            addCriterion("return_date =", value, "returnDate");
+        public Criteria andDamageRemarksIsNull() {
+            addCriterion("damage_remarks is null");
             return (Criteria) this;
         }
 
-        public Criteria andReturnDateNotEqualTo(Date value) {
-            addCriterion("return_date <>", value, "returnDate");
+        public Criteria andDamageRemarksIsNotNull() {
+            addCriterion("damage_remarks is not null");
             return (Criteria) this;
         }
 
-        public Criteria andReturnDateGreaterThan(Date value) {
-            addCriterion("return_date >", value, "returnDate");
+        public Criteria andDamageRemarksEqualTo(String value) {
+            addCriterion("damage_remarks =", value, "damageRemarks");
             return (Criteria) this;
         }
 
-        public Criteria andReturnDateGreaterThanOrEqualTo(Date value) {
-            addCriterion("return_date >=", value, "returnDate");
+        public Criteria andDamageRemarksNotEqualTo(String value) {
+            addCriterion("damage_remarks <>", value, "damageRemarks");
             return (Criteria) this;
         }
 
-        public Criteria andReturnDateLessThan(Date value) {
-            addCriterion("return_date <", value, "returnDate");
+        public Criteria andDamageRemarksGreaterThan(String value) {
+            addCriterion("damage_remarks >", value, "damageRemarks");
             return (Criteria) this;
         }
 
-        public Criteria andReturnDateLessThanOrEqualTo(Date value) {
-            addCriterion("return_date <=", value, "returnDate");
+        public Criteria andDamageRemarksGreaterThanOrEqualTo(String value) {
+            addCriterion("damage_remarks >=", value, "damageRemarks");
             return (Criteria) this;
         }
 
-        public Criteria andReturnDateIn(List<Date> values) {
-            addCriterion("return_date in", values, "returnDate");
+        public Criteria andDamageRemarksLessThan(String value) {
+            addCriterion("damage_remarks <", value, "damageRemarks");
             return (Criteria) this;
         }
 
-        public Criteria andReturnDateNotIn(List<Date> values) {
-            addCriterion("return_date not in", values, "returnDate");
+        public Criteria andDamageRemarksLessThanOrEqualTo(String value) {
+            addCriterion("damage_remarks <=", value, "damageRemarks");
             return (Criteria) this;
         }
 
-        public Criteria andReturnDateBetween(Date value1, Date value2) {
-            addCriterion("return_date between", value1, value2, "returnDate");
+        public Criteria andDamageRemarksLike(String value) {
+            addCriterion("damage_remarks like", value, "damageRemarks");
             return (Criteria) this;
         }
 
-        public Criteria andReturnDateNotBetween(Date value1, Date value2) {
-            addCriterion("return_date not between", value1, value2, "returnDate");
+        public Criteria andDamageRemarksNotLike(String value) {
+            addCriterion("damage_remarks not like", value, "damageRemarks");
+            return (Criteria) this;
+        }
+
+        public Criteria andDamageRemarksIn(List<String> values) {
+            addCriterion("damage_remarks in", values, "damageRemarks");
+            return (Criteria) this;
+        }
+
+        public Criteria andDamageRemarksNotIn(List<String> values) {
+            addCriterion("damage_remarks not in", values, "damageRemarks");
+            return (Criteria) this;
+        }
+
+        public Criteria andDamageRemarksBetween(String value1, String value2) {
+            addCriterion("damage_remarks between", value1, value2, "damageRemarks");
+            return (Criteria) this;
+        }
+
+        public Criteria andDamageRemarksNotBetween(String value1, String value2) {
+            addCriterion("damage_remarks not between", value1, value2, "damageRemarks");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepairDateIsNull() {
+            addCriterion("repair_date is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepairDateIsNotNull() {
+            addCriterion("repair_date is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepairDateEqualTo(Date value) {
+            addCriterion("repair_date =", value, "repairDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepairDateNotEqualTo(Date value) {
+            addCriterion("repair_date <>", value, "repairDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepairDateGreaterThan(Date value) {
+            addCriterion("repair_date >", value, "repairDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepairDateGreaterThanOrEqualTo(Date value) {
+            addCriterion("repair_date >=", value, "repairDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepairDateLessThan(Date value) {
+            addCriterion("repair_date <", value, "repairDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepairDateLessThanOrEqualTo(Date value) {
+            addCriterion("repair_date <=", value, "repairDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepairDateIn(List<Date> values) {
+            addCriterion("repair_date in", values, "repairDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepairDateNotIn(List<Date> values) {
+            addCriterion("repair_date not in", values, "repairDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepairDateBetween(Date value1, Date value2) {
+            addCriterion("repair_date between", value1, value2, "repairDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepairDateNotBetween(Date value1, Date value2) {
+            addCriterion("repair_date not between", value1, value2, "repairDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepairerIsNull() {
+            addCriterion("repairer is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepairerIsNotNull() {
+            addCriterion("repairer is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepairerEqualTo(String value) {
+            addCriterion("repairer =", value, "repairer");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepairerNotEqualTo(String value) {
+            addCriterion("repairer <>", value, "repairer");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepairerGreaterThan(String value) {
+            addCriterion("repairer >", value, "repairer");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepairerGreaterThanOrEqualTo(String value) {
+            addCriterion("repairer >=", value, "repairer");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepairerLessThan(String value) {
+            addCriterion("repairer <", value, "repairer");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepairerLessThanOrEqualTo(String value) {
+            addCriterion("repairer <=", value, "repairer");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepairerLike(String value) {
+            addCriterion("repairer like", value, "repairer");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepairerNotLike(String value) {
+            addCriterion("repairer not like", value, "repairer");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepairerIn(List<String> values) {
+            addCriterion("repairer in", values, "repairer");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepairerNotIn(List<String> values) {
+            addCriterion("repairer not in", values, "repairer");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepairerBetween(String value1, String value2) {
+            addCriterion("repairer between", value1, value2, "repairer");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepairerNotBetween(String value1, String value2) {
+            addCriterion("repairer not between", value1, value2, "repairer");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepairRemarksIsNull() {
+            addCriterion("repair_remarks is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepairRemarksIsNotNull() {
+            addCriterion("repair_remarks is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepairRemarksEqualTo(String value) {
+            addCriterion("repair_remarks =", value, "repairRemarks");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepairRemarksNotEqualTo(String value) {
+            addCriterion("repair_remarks <>", value, "repairRemarks");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepairRemarksGreaterThan(String value) {
+            addCriterion("repair_remarks >", value, "repairRemarks");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepairRemarksGreaterThanOrEqualTo(String value) {
+            addCriterion("repair_remarks >=", value, "repairRemarks");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepairRemarksLessThan(String value) {
+            addCriterion("repair_remarks <", value, "repairRemarks");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepairRemarksLessThanOrEqualTo(String value) {
+            addCriterion("repair_remarks <=", value, "repairRemarks");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepairRemarksLike(String value) {
+            addCriterion("repair_remarks like", value, "repairRemarks");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepairRemarksNotLike(String value) {
+            addCriterion("repair_remarks not like", value, "repairRemarks");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepairRemarksIn(List<String> values) {
+            addCriterion("repair_remarks in", values, "repairRemarks");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepairRemarksNotIn(List<String> values) {
+            addCriterion("repair_remarks not in", values, "repairRemarks");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepairRemarksBetween(String value1, String value2) {
+            addCriterion("repair_remarks between", value1, value2, "repairRemarks");
+            return (Criteria) this;
+        }
+
+        public Criteria andRepairRemarksNotBetween(String value1, String value2) {
+            addCriterion("repair_remarks not between", value1, value2, "repairRemarks");
             return (Criteria) this;
         }
 
@@ -532,146 +692,6 @@ public class DeviceReceiveExample {
 
         public Criteria andStatusNotBetween(Short value1, Short value2) {
             addCriterion("status not between", value1, value2, "status");
-            return (Criteria) this;
-        }
-
-        public Criteria andRcRemarksIsNull() {
-            addCriterion("rc_remarks is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andRcRemarksIsNotNull() {
-            addCriterion("rc_remarks is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andRcRemarksEqualTo(String value) {
-            addCriterion("rc_remarks =", value, "rcRemarks");
-            return (Criteria) this;
-        }
-
-        public Criteria andRcRemarksNotEqualTo(String value) {
-            addCriterion("rc_remarks <>", value, "rcRemarks");
-            return (Criteria) this;
-        }
-
-        public Criteria andRcRemarksGreaterThan(String value) {
-            addCriterion("rc_remarks >", value, "rcRemarks");
-            return (Criteria) this;
-        }
-
-        public Criteria andRcRemarksGreaterThanOrEqualTo(String value) {
-            addCriterion("rc_remarks >=", value, "rcRemarks");
-            return (Criteria) this;
-        }
-
-        public Criteria andRcRemarksLessThan(String value) {
-            addCriterion("rc_remarks <", value, "rcRemarks");
-            return (Criteria) this;
-        }
-
-        public Criteria andRcRemarksLessThanOrEqualTo(String value) {
-            addCriterion("rc_remarks <=", value, "rcRemarks");
-            return (Criteria) this;
-        }
-
-        public Criteria andRcRemarksLike(String value) {
-            addCriterion("rc_remarks like", value, "rcRemarks");
-            return (Criteria) this;
-        }
-
-        public Criteria andRcRemarksNotLike(String value) {
-            addCriterion("rc_remarks not like", value, "rcRemarks");
-            return (Criteria) this;
-        }
-
-        public Criteria andRcRemarksIn(List<String> values) {
-            addCriterion("rc_remarks in", values, "rcRemarks");
-            return (Criteria) this;
-        }
-
-        public Criteria andRcRemarksNotIn(List<String> values) {
-            addCriterion("rc_remarks not in", values, "rcRemarks");
-            return (Criteria) this;
-        }
-
-        public Criteria andRcRemarksBetween(String value1, String value2) {
-            addCriterion("rc_remarks between", value1, value2, "rcRemarks");
-            return (Criteria) this;
-        }
-
-        public Criteria andRcRemarksNotBetween(String value1, String value2) {
-            addCriterion("rc_remarks not between", value1, value2, "rcRemarks");
-            return (Criteria) this;
-        }
-
-        public Criteria andRtRemarksIsNull() {
-            addCriterion("rt_remarks is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andRtRemarksIsNotNull() {
-            addCriterion("rt_remarks is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andRtRemarksEqualTo(String value) {
-            addCriterion("rt_remarks =", value, "rtRemarks");
-            return (Criteria) this;
-        }
-
-        public Criteria andRtRemarksNotEqualTo(String value) {
-            addCriterion("rt_remarks <>", value, "rtRemarks");
-            return (Criteria) this;
-        }
-
-        public Criteria andRtRemarksGreaterThan(String value) {
-            addCriterion("rt_remarks >", value, "rtRemarks");
-            return (Criteria) this;
-        }
-
-        public Criteria andRtRemarksGreaterThanOrEqualTo(String value) {
-            addCriterion("rt_remarks >=", value, "rtRemarks");
-            return (Criteria) this;
-        }
-
-        public Criteria andRtRemarksLessThan(String value) {
-            addCriterion("rt_remarks <", value, "rtRemarks");
-            return (Criteria) this;
-        }
-
-        public Criteria andRtRemarksLessThanOrEqualTo(String value) {
-            addCriterion("rt_remarks <=", value, "rtRemarks");
-            return (Criteria) this;
-        }
-
-        public Criteria andRtRemarksLike(String value) {
-            addCriterion("rt_remarks like", value, "rtRemarks");
-            return (Criteria) this;
-        }
-
-        public Criteria andRtRemarksNotLike(String value) {
-            addCriterion("rt_remarks not like", value, "rtRemarks");
-            return (Criteria) this;
-        }
-
-        public Criteria andRtRemarksIn(List<String> values) {
-            addCriterion("rt_remarks in", values, "rtRemarks");
-            return (Criteria) this;
-        }
-
-        public Criteria andRtRemarksNotIn(List<String> values) {
-            addCriterion("rt_remarks not in", values, "rtRemarks");
-            return (Criteria) this;
-        }
-
-        public Criteria andRtRemarksBetween(String value1, String value2) {
-            addCriterion("rt_remarks between", value1, value2, "rtRemarks");
-            return (Criteria) this;
-        }
-
-        public Criteria andRtRemarksNotBetween(String value1, String value2) {
-            addCriterion("rt_remarks not between", value1, value2, "rtRemarks");
             return (Criteria) this;
         }
 
