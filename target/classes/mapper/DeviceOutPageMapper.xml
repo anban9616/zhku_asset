@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="zhku.zhou.asset.dao.DeviceOutMapper" >
-  <resultMap id="BaseResultMap" type="zhku.zhou.asset.entity.DeviceOut" >
-    <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="did" property="did" jdbcType="INTEGER" />
-    <result column="outter" property="outter" jdbcType="INTEGER" />
+<mapper namespace="zhku.zhou.asset.dao.DeviceOutPageMapper" >
+  <resultMap id="BaseResultMap" type="zhku.zhou.asset.entity.DeviceOutPage" >
+    <result column="id" property="id" jdbcType="INTEGER" />
+    <result column="dcode" property="dcode" jdbcType="VARCHAR" />
+    <result column="outter" property="outter" jdbcType="VARCHAR" />
     <result column="out_remarks" property="outRemarks" jdbcType="VARCHAR" />
     <result column="status" property="status" jdbcType="DECIMAL" />
-    <result column="approver" property="approver" jdbcType="INTEGER" />
+    <result column="approver" property="approver" jdbcType="VARCHAR" />
     <result column="approval_remarks" property="approvalRemarks" jdbcType="VARCHAR" />
     <result column="crtm" property="crtm" jdbcType="TIMESTAMP" />
     <result column="mdtm" property="mdtm" jdbcType="TIMESTAMP" />
@@ -71,15 +71,15 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, did, outter, out_remarks, status, approver, approval_remarks, crtm, mdtm
+    id, dcode, outter, out_remarks, status, approver, approval_remarks, crtm, mdtm
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="zhku.zhou.asset.entity.DeviceOutExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="zhku.zhou.asset.entity.DeviceOutPageExample" >
     select
     <if test="distinct" >
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from device_out
+    from device_out_page
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
@@ -87,40 +87,30 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select 
-    <include refid="Base_Column_List" />
-    from device_out
-    where id = #{id,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from device_out
-    where id = #{id,jdbcType=INTEGER}
-  </delete>
-  <delete id="deleteByExample" parameterType="zhku.zhou.asset.entity.DeviceOutExample" >
-    delete from device_out
+  <delete id="deleteByExample" parameterType="zhku.zhou.asset.entity.DeviceOutPageExample" >
+    delete from device_out_page
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="zhku.zhou.asset.entity.DeviceOut" >
-    insert into device_out (id, did, outter, 
+  <insert id="insert" parameterType="zhku.zhou.asset.entity.DeviceOutPage" >
+    insert into device_out_page (id, dcode, outter, 
       out_remarks, status, approver, 
       approval_remarks, crtm, mdtm
       )
-    values (#{id,jdbcType=INTEGER}, #{did,jdbcType=INTEGER}, #{outter,jdbcType=INTEGER}, 
-      #{outRemarks,jdbcType=VARCHAR}, #{status,jdbcType=DECIMAL}, #{approver,jdbcType=INTEGER}, 
+    values (#{id,jdbcType=INTEGER}, #{dcode,jdbcType=VARCHAR}, #{outter,jdbcType=VARCHAR}, 
+      #{outRemarks,jdbcType=VARCHAR}, #{status,jdbcType=DECIMAL}, #{approver,jdbcType=VARCHAR}, 
       #{approvalRemarks,jdbcType=VARCHAR}, #{crtm,jdbcType=TIMESTAMP}, #{mdtm,jdbcType=TIMESTAMP}
       )
   </insert>
-  <insert id="insertSelective" parameterType="zhku.zhou.asset.entity.DeviceOut" >
-    insert into device_out
+  <insert id="insertSelective" parameterType="zhku.zhou.asset.entity.DeviceOutPage" >
+    insert into device_out_page
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         id,
       </if>
-      <if test="did != null" >
-        did,
+      <if test="dcode != null" >
+        dcode,
       </if>
       <if test="outter != null" >
         outter,
@@ -148,11 +138,11 @@
       <if test="id != null" >
         #{id,jdbcType=INTEGER},
       </if>
-      <if test="did != null" >
-        #{did,jdbcType=INTEGER},
+      <if test="dcode != null" >
+        #{dcode,jdbcType=VARCHAR},
       </if>
       <if test="outter != null" >
-        #{outter,jdbcType=INTEGER},
+        #{outter,jdbcType=VARCHAR},
       </if>
       <if test="outRemarks != null" >
         #{outRemarks,jdbcType=VARCHAR},
@@ -161,7 +151,7 @@
         #{status,jdbcType=DECIMAL},
       </if>
       <if test="approver != null" >
-        #{approver,jdbcType=INTEGER},
+        #{approver,jdbcType=VARCHAR},
       </if>
       <if test="approvalRemarks != null" >
         #{approvalRemarks,jdbcType=VARCHAR},
@@ -174,23 +164,23 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="zhku.zhou.asset.entity.DeviceOutExample" resultType="java.lang.Integer" >
-    select count(*) from device_out
+  <select id="countByExample" parameterType="zhku.zhou.asset.entity.DeviceOutPageExample" resultType="java.lang.Integer" >
+    select count(*) from device_out_page
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map" >
-    update device_out
+    update device_out_page
     <set >
       <if test="record.id != null" >
         id = #{record.id,jdbcType=INTEGER},
       </if>
-      <if test="record.did != null" >
-        did = #{record.did,jdbcType=INTEGER},
+      <if test="record.dcode != null" >
+        dcode = #{record.dcode,jdbcType=VARCHAR},
       </if>
       <if test="record.outter != null" >
-        outter = #{record.outter,jdbcType=INTEGER},
+        outter = #{record.outter,jdbcType=VARCHAR},
       </if>
       <if test="record.outRemarks != null" >
         out_remarks = #{record.outRemarks,jdbcType=VARCHAR},
@@ -199,7 +189,7 @@
         status = #{record.status,jdbcType=DECIMAL},
       </if>
       <if test="record.approver != null" >
-        approver = #{record.approver,jdbcType=INTEGER},
+        approver = #{record.approver,jdbcType=VARCHAR},
       </if>
       <if test="record.approvalRemarks != null" >
         approval_remarks = #{record.approvalRemarks,jdbcType=VARCHAR},
@@ -216,60 +206,18 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map" >
-    update device_out
+    update device_out_page
     set id = #{record.id,jdbcType=INTEGER},
-      did = #{record.did,jdbcType=INTEGER},
-      outter = #{record.outter,jdbcType=INTEGER},
+      dcode = #{record.dcode,jdbcType=VARCHAR},
+      outter = #{record.outter,jdbcType=VARCHAR},
       out_remarks = #{record.outRemarks,jdbcType=VARCHAR},
       status = #{record.status,jdbcType=DECIMAL},
-      approver = #{record.approver,jdbcType=INTEGER},
+      approver = #{record.approver,jdbcType=VARCHAR},
       approval_remarks = #{record.approvalRemarks,jdbcType=VARCHAR},
       crtm = #{record.crtm,jdbcType=TIMESTAMP},
       mdtm = #{record.mdtm,jdbcType=TIMESTAMP}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
-  </update>
-  <update id="updateByPrimaryKeySelective" parameterType="zhku.zhou.asset.entity.DeviceOut" >
-    update device_out
-    <set >
-      <if test="did != null" >
-        did = #{did,jdbcType=INTEGER},
-      </if>
-      <if test="outter != null" >
-        outter = #{outter,jdbcType=INTEGER},
-      </if>
-      <if test="outRemarks != null" >
-        out_remarks = #{outRemarks,jdbcType=VARCHAR},
-      </if>
-      <if test="status != null" >
-        status = #{status,jdbcType=DECIMAL},
-      </if>
-      <if test="approver != null" >
-        approver = #{approver,jdbcType=INTEGER},
-      </if>
-      <if test="approvalRemarks != null" >
-        approval_remarks = #{approvalRemarks,jdbcType=VARCHAR},
-      </if>
-      <if test="crtm != null" >
-        crtm = #{crtm,jdbcType=TIMESTAMP},
-      </if>
-      <if test="mdtm != null" >
-        mdtm = #{mdtm,jdbcType=TIMESTAMP},
-      </if>
-    </set>
-    where id = #{id,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="zhku.zhou.asset.entity.DeviceOut" >
-    update device_out
-    set did = #{did,jdbcType=INTEGER},
-      outter = #{outter,jdbcType=INTEGER},
-      out_remarks = #{outRemarks,jdbcType=VARCHAR},
-      status = #{status,jdbcType=DECIMAL},
-      approver = #{approver,jdbcType=INTEGER},
-      approval_remarks = #{approvalRemarks,jdbcType=VARCHAR},
-      crtm = #{crtm,jdbcType=TIMESTAMP},
-      mdtm = #{mdtm,jdbcType=TIMESTAMP}
-    where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

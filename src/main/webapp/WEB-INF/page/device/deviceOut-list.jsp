@@ -10,23 +10,25 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
 <meta http-equiv="Cache-Control" content="no-siteapp" />
 <%@include file="/WEB-INF/page/common/header.jsp"%>
-<title>设备列表</title>
+<title>设备报废类型列表</title>
 </head>
 <body>
 	<nav class="breadcrumb">
-		<i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 设备管理 <span class="c-gray en">&gt;</span> 用户管理 <a class="btn btn-success radius r"
-			style="line-height: 1.6em; margin-top: 3px" href="javascript:location.replace(location.href);" title="刷新"><i class="Hui-iconfont" id="shuaxin">&#xe68f;</i></a>
+		<i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 设备报废类型管理 <span class="c-gray en">&gt;</span> 用户管理 <a
+			class="btn btn-success radius r" style="line-height: 1.6em; margin-top: 3px" href="javascript:location.replace(location.href);" title="刷新"><i
+			class="Hui-iconfont" id="shuaxin">&#xe68f;</i></a>
 	</nav>
 	<div class="page-container">
 		<div class="text-c">
-			<input type="text" class="input-text" style="width: 250px" placeholder="输入设备名称" id="" name="">
+			<input type="text" class="input-text" style="width: 250px" placeholder="输入设备报废类型名称" id="" name="">
 			<button type="submit" class="btn btn-success" id="" name="">
-				<i class="Hui-iconfont">&#xe665;</i> 搜设备
+				<i class="Hui-iconfont">&#xe665;</i> 搜设备报废类型
 			</button>
 		</div>
 		<div class="cl pd-5 bg-1 bk-gray mt-20">
 			<span class="l"> <a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a
-				href="javascript:;" onclick="admin_add('添加设备','${path}/device/add','800','500')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加用户</a>
+				href="javascript:;" onclick="admin_add('添加设备报废类型','${path}/deviceOut/add','800','500')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i>
+					添加用户</a>
 			</span> <span class="r">共有数据：<strong>${requestScope.count }</strong> 条
 			</span>
 		</div>
@@ -39,16 +41,13 @@
 					<th width="25"><input type="checkbox" name="" value=""></th>
 					<th width="40">序号</th>
 					<th width="100">设备流水号</th>
-					<th width="100">设备类型</th>
-					<th width="100">部门</th>
-					<th width="100">登记人</th>
+					<th width="100">报废人</th>
+					<th width="100">报废备注</th>
+					<th width="100">状态</th>
+					<th width="100">审核人</th>
+					<th width="100">审核备注</th>
 					<th width="100">创建时间</th>
 					<th width="100">修改时间</th>
-					<th width="100">原值</th>
-					<th width="100">净残值</th>
-					<th width="100">生产日期</th>
-					<th width="100">序列号</th>
-					<th width="100">状态</th>
 					<th width="100">操作</th>
 				</tr>
 			</thead>
@@ -57,28 +56,22 @@
 					<tr class="text-c">
 						<td><input type="checkbox" value="" name=""><input type="hidden" name="id" value="${item.id }" /></td>
 						<td>${status.index+1 }</td>
-						<td>${item.code }</td>
-						<td>${item.deviceType }</td>
-						<td>${item.organization }</td>
-						<td>${item.creator }</td>
+						<td>${item.dcode }</td>
+						<td>${item.outter }</td>
+						<td>${item.outRemarks }</td>
+						<td>
+							<c:if test="${item.status ==1}">申请报废</c:if>
+							<c:if test="${item.status ==2}">审核报废</c:if>
+							<c:if test="${item.status ==3}">拒绝报废</c:if>
+						</td>
+						<td>${item.approver }</td>
+						<td>${item.approvalRemarks }</td>
 						<td><fmt:formatDate value="${item.crtm }" pattern="yyyy-MM-dd hh:mm:ss" /></td>
 						<td><fmt:formatDate value="${item.mdtm }" pattern="yyyy-MM-dd hh:mm:ss" /></td>
-						<td>${item.original }</td>
-						<td>${item.residual }</td>
-						<td><fmt:formatDate value="${item.prodDate }" pattern="yyy-MM-dd"/> </td>
-						<td>${item.sno }</td>
-						<td>
-							<c:if test="${item.status == 1}">入库</c:if>
-							<c:if test="${item.status == 2}">出库中</c:if>
-							<c:if test="${item.status == 3}">出库</c:if>
-							<c:if test="${item.status == 4}">领用</c:if>
-							<c:if test="${item.status == 5}">报修</c:if>
-							<c:if test="${item.status == 6}">申请报废</c:if>
-							<c:if test="${item.status == 7}">确认报废</c:if>
+						<td class="td-manage">
+							<a title="编辑" href="javascript:;" onclick="admin_edit('设备报废类型编辑','${path}/deviceOut/edit?id=${item.id }','800','500')" class="ml-5" style="text-decoration: none"><i class="Hui-iconfont">&#xe6df;</i></a> 
+							<a title="删除" href="javascript:;" onclick="admin_del(this,${item.id})" class="ml-5" style="text-decoration: none"><i class="Hui-iconfont">&#xe6e2;</i></a>
 						</td>
-						<td class="td-manage"><a title="编辑" href="javascript:;" onclick="admin_edit('设备编辑','${path}/device/edit?id=${item.id }','800','500')" class="ml-5"
-							style="text-decoration: none"><i class="Hui-iconfont">&#xe6df;</i></a> <a title="删除" href="javascript:;" onclick="admin_del(this,${item.id})"
-							class="ml-5" style="text-decoration: none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
 					</tr>
 				</c:forEach>
 			</tbody>
@@ -99,18 +92,18 @@
 	w		弹出层宽度（缺省调默认值）
 	h		弹出层高度（缺省调默认值）
 */
-/*设备-增加*/
+/*设备报废类型-增加*/
 function admin_add(title,url,w,h){
 	layer_show(title,url,w,h);
 	
 }
 
-/*设备-删除*/
+/*设备报废类型-删除*/
 function admin_del(obj,id){
 	layer.confirm('确认要删除吗？',function(index){
 		$.ajax({
 			type: 'POST',
-			url: '${path}/device/deleteOne?id='+id,
+			url: '${path}/deviceOut/deleteOne?id='+id,
 			dataType: 'json',
 			success: function(data){
 				$(obj).parents("tr").remove();
@@ -123,7 +116,7 @@ function admin_del(obj,id){
 	});
 }
 
-/*设备-编辑*/
+/*设备报废类型-编辑*/
 function admin_edit(title,url,w,h){
 	layer_show(title,url,w,h);
 }

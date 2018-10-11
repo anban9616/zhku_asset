@@ -5,12 +5,10 @@
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="did" property="did" jdbcType="INTEGER" />
     <result column="outter" property="outter" jdbcType="INTEGER" />
-    <result column="out_date" property="outDate" jdbcType="TIMESTAMP" />
-    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="out_remarks" property="outRemarks" jdbcType="VARCHAR" />
     <result column="status" property="status" jdbcType="DECIMAL" />
     <result column="approver" property="approver" jdbcType="INTEGER" />
     <result column="approval_remarks" property="approvalRemarks" jdbcType="VARCHAR" />
-    <result column="approval_date" property="approvalDate" jdbcType="TIMESTAMP" />
     <result column="crtm" property="crtm" jdbcType="TIMESTAMP" />
     <result column="mdtm" property="mdtm" jdbcType="TIMESTAMP" />
   </resultMap>
@@ -73,8 +71,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, did, outter, out_date, remarks, status, approver, approval_remarks, approval_date, 
-    crtm, mdtm
+    id, did, outter, out_remarks, status, approver, approval_remarks, crtm, mdtm
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="zhku.zhou.asset.entity.DeviceOutExample" >
     select
@@ -108,13 +105,13 @@
   </delete>
   <insert id="insert" parameterType="zhku.zhou.asset.entity.DeviceOut" >
     insert into device_out (id, did, outter, 
-      out_date, remarks, status, 
-      approver, approval_remarks, approval_date, 
-      crtm, mdtm)
+      out_remarks, status, approver, 
+      approval_remarks, crtm, mdtm
+      )
     values (#{id,jdbcType=INTEGER}, #{did,jdbcType=INTEGER}, #{outter,jdbcType=INTEGER}, 
-      #{outDate,jdbcType=TIMESTAMP}, #{remarks,jdbcType=VARCHAR}, #{status,jdbcType=DECIMAL}, 
-      #{approver,jdbcType=INTEGER}, #{approvalRemarks,jdbcType=VARCHAR}, #{approvalDate,jdbcType=TIMESTAMP}, 
-      #{crtm,jdbcType=TIMESTAMP}, #{mdtm,jdbcType=TIMESTAMP})
+      #{outRemarks,jdbcType=VARCHAR}, #{status,jdbcType=DECIMAL}, #{approver,jdbcType=INTEGER}, 
+      #{approvalRemarks,jdbcType=VARCHAR}, #{crtm,jdbcType=TIMESTAMP}, #{mdtm,jdbcType=TIMESTAMP}
+      )
   </insert>
   <insert id="insertSelective" parameterType="zhku.zhou.asset.entity.DeviceOut" >
     insert into device_out
@@ -128,11 +125,8 @@
       <if test="outter != null" >
         outter,
       </if>
-      <if test="outDate != null" >
-        out_date,
-      </if>
-      <if test="remarks != null" >
-        remarks,
+      <if test="outRemarks != null" >
+        out_remarks,
       </if>
       <if test="status != null" >
         status,
@@ -142,9 +136,6 @@
       </if>
       <if test="approvalRemarks != null" >
         approval_remarks,
-      </if>
-      <if test="approvalDate != null" >
-        approval_date,
       </if>
       <if test="crtm != null" >
         crtm,
@@ -163,11 +154,8 @@
       <if test="outter != null" >
         #{outter,jdbcType=INTEGER},
       </if>
-      <if test="outDate != null" >
-        #{outDate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="remarks != null" >
-        #{remarks,jdbcType=VARCHAR},
+      <if test="outRemarks != null" >
+        #{outRemarks,jdbcType=VARCHAR},
       </if>
       <if test="status != null" >
         #{status,jdbcType=DECIMAL},
@@ -177,9 +165,6 @@
       </if>
       <if test="approvalRemarks != null" >
         #{approvalRemarks,jdbcType=VARCHAR},
-      </if>
-      <if test="approvalDate != null" >
-        #{approvalDate,jdbcType=TIMESTAMP},
       </if>
       <if test="crtm != null" >
         #{crtm,jdbcType=TIMESTAMP},
@@ -207,11 +192,8 @@
       <if test="record.outter != null" >
         outter = #{record.outter,jdbcType=INTEGER},
       </if>
-      <if test="record.outDate != null" >
-        out_date = #{record.outDate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="record.remarks != null" >
-        remarks = #{record.remarks,jdbcType=VARCHAR},
+      <if test="record.outRemarks != null" >
+        out_remarks = #{record.outRemarks,jdbcType=VARCHAR},
       </if>
       <if test="record.status != null" >
         status = #{record.status,jdbcType=DECIMAL},
@@ -221,9 +203,6 @@
       </if>
       <if test="record.approvalRemarks != null" >
         approval_remarks = #{record.approvalRemarks,jdbcType=VARCHAR},
-      </if>
-      <if test="record.approvalDate != null" >
-        approval_date = #{record.approvalDate,jdbcType=TIMESTAMP},
       </if>
       <if test="record.crtm != null" >
         crtm = #{record.crtm,jdbcType=TIMESTAMP},
@@ -241,12 +220,10 @@
     set id = #{record.id,jdbcType=INTEGER},
       did = #{record.did,jdbcType=INTEGER},
       outter = #{record.outter,jdbcType=INTEGER},
-      out_date = #{record.outDate,jdbcType=TIMESTAMP},
-      remarks = #{record.remarks,jdbcType=VARCHAR},
+      out_remarks = #{record.outRemarks,jdbcType=VARCHAR},
       status = #{record.status,jdbcType=DECIMAL},
       approver = #{record.approver,jdbcType=INTEGER},
       approval_remarks = #{record.approvalRemarks,jdbcType=VARCHAR},
-      approval_date = #{record.approvalDate,jdbcType=TIMESTAMP},
       crtm = #{record.crtm,jdbcType=TIMESTAMP},
       mdtm = #{record.mdtm,jdbcType=TIMESTAMP}
     <if test="_parameter != null" >
@@ -262,11 +239,8 @@
       <if test="outter != null" >
         outter = #{outter,jdbcType=INTEGER},
       </if>
-      <if test="outDate != null" >
-        out_date = #{outDate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="remarks != null" >
-        remarks = #{remarks,jdbcType=VARCHAR},
+      <if test="outRemarks != null" >
+        out_remarks = #{outRemarks,jdbcType=VARCHAR},
       </if>
       <if test="status != null" >
         status = #{status,jdbcType=DECIMAL},
@@ -276,9 +250,6 @@
       </if>
       <if test="approvalRemarks != null" >
         approval_remarks = #{approvalRemarks,jdbcType=VARCHAR},
-      </if>
-      <if test="approvalDate != null" >
-        approval_date = #{approvalDate,jdbcType=TIMESTAMP},
       </if>
       <if test="crtm != null" >
         crtm = #{crtm,jdbcType=TIMESTAMP},
@@ -293,12 +264,10 @@
     update device_out
     set did = #{did,jdbcType=INTEGER},
       outter = #{outter,jdbcType=INTEGER},
-      out_date = #{outDate,jdbcType=TIMESTAMP},
-      remarks = #{remarks,jdbcType=VARCHAR},
+      out_remarks = #{outRemarks,jdbcType=VARCHAR},
       status = #{status,jdbcType=DECIMAL},
       approver = #{approver,jdbcType=INTEGER},
       approval_remarks = #{approvalRemarks,jdbcType=VARCHAR},
-      approval_date = #{approvalDate,jdbcType=TIMESTAMP},
       crtm = #{crtm,jdbcType=TIMESTAMP},
       mdtm = #{mdtm,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}

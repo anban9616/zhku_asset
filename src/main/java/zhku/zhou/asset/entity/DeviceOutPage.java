@@ -2,18 +2,18 @@ package zhku.zhou.asset.entity;
 
 import java.util.Date;
 
-public class DeviceOut {
+public class DeviceOutPage {
     private Integer id;
 
-    private Integer did;
+    private String dcode;
 
-    private Integer outter;
+    private String outter;
 
     private String outRemarks;
 
     private Short status;
 
-    private Integer approver;
+    private String approver;
 
     private String approvalRemarks;
 
@@ -29,20 +29,20 @@ public class DeviceOut {
         this.id = id;
     }
 
-    public Integer getDid() {
-        return did;
+    public String getDcode() {
+        return dcode;
     }
 
-    public void setDid(Integer did) {
-        this.did = did;
+    public void setDcode(String dcode) {
+        this.dcode = dcode == null ? null : dcode.trim();
     }
 
-    public Integer getOutter() {
+    public String getOutter() {
         return outter;
     }
 
-    public void setOutter(Integer outter) {
-        this.outter = outter;
+    public void setOutter(String outter) {
+        this.outter = outter == null ? null : outter.trim();
     }
 
     public String getOutRemarks() {
@@ -61,12 +61,12 @@ public class DeviceOut {
         this.status = status;
     }
 
-    public Integer getApprover() {
+    public String getApprover() {
         return approver;
     }
 
-    public void setApprover(Integer approver) {
-        this.approver = approver;
+    public void setApprover(String approver) {
+        this.approver = approver == null ? null : approver.trim();
     }
 
     public String getApprovalRemarks() {

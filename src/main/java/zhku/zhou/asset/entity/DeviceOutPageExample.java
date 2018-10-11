@@ -4,14 +4,14 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class DeviceOutExample {
+public class DeviceOutPageExample {
     protected String orderByClause;
 
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
 
-    public DeviceOutExample() {
+    public DeviceOutPageExample() {
         oredCriteria = new ArrayList<Criteria>();
     }
 
@@ -165,63 +165,73 @@ public class DeviceOutExample {
             return (Criteria) this;
         }
 
-        public Criteria andDidIsNull() {
-            addCriterion("did is null");
+        public Criteria andDcodeIsNull() {
+            addCriterion("dcode is null");
             return (Criteria) this;
         }
 
-        public Criteria andDidIsNotNull() {
-            addCriterion("did is not null");
+        public Criteria andDcodeIsNotNull() {
+            addCriterion("dcode is not null");
             return (Criteria) this;
         }
 
-        public Criteria andDidEqualTo(Integer value) {
-            addCriterion("did =", value, "did");
+        public Criteria andDcodeEqualTo(String value) {
+            addCriterion("dcode =", value, "dcode");
             return (Criteria) this;
         }
 
-        public Criteria andDidNotEqualTo(Integer value) {
-            addCriterion("did <>", value, "did");
+        public Criteria andDcodeNotEqualTo(String value) {
+            addCriterion("dcode <>", value, "dcode");
             return (Criteria) this;
         }
 
-        public Criteria andDidGreaterThan(Integer value) {
-            addCriterion("did >", value, "did");
+        public Criteria andDcodeGreaterThan(String value) {
+            addCriterion("dcode >", value, "dcode");
             return (Criteria) this;
         }
 
-        public Criteria andDidGreaterThanOrEqualTo(Integer value) {
-            addCriterion("did >=", value, "did");
+        public Criteria andDcodeGreaterThanOrEqualTo(String value) {
+            addCriterion("dcode >=", value, "dcode");
             return (Criteria) this;
         }
 
-        public Criteria andDidLessThan(Integer value) {
-            addCriterion("did <", value, "did");
+        public Criteria andDcodeLessThan(String value) {
+            addCriterion("dcode <", value, "dcode");
             return (Criteria) this;
         }
 
-        public Criteria andDidLessThanOrEqualTo(Integer value) {
-            addCriterion("did <=", value, "did");
+        public Criteria andDcodeLessThanOrEqualTo(String value) {
+            addCriterion("dcode <=", value, "dcode");
             return (Criteria) this;
         }
 
-        public Criteria andDidIn(List<Integer> values) {
-            addCriterion("did in", values, "did");
+        public Criteria andDcodeLike(String value) {
+            addCriterion("dcode like", value, "dcode");
             return (Criteria) this;
         }
 
-        public Criteria andDidNotIn(List<Integer> values) {
-            addCriterion("did not in", values, "did");
+        public Criteria andDcodeNotLike(String value) {
+            addCriterion("dcode not like", value, "dcode");
             return (Criteria) this;
         }
 
-        public Criteria andDidBetween(Integer value1, Integer value2) {
-            addCriterion("did between", value1, value2, "did");
+        public Criteria andDcodeIn(List<String> values) {
+            addCriterion("dcode in", values, "dcode");
             return (Criteria) this;
         }
 
-        public Criteria andDidNotBetween(Integer value1, Integer value2) {
-            addCriterion("did not between", value1, value2, "did");
+        public Criteria andDcodeNotIn(List<String> values) {
+            addCriterion("dcode not in", values, "dcode");
+            return (Criteria) this;
+        }
+
+        public Criteria andDcodeBetween(String value1, String value2) {
+            addCriterion("dcode between", value1, value2, "dcode");
+            return (Criteria) this;
+        }
+
+        public Criteria andDcodeNotBetween(String value1, String value2) {
+            addCriterion("dcode not between", value1, value2, "dcode");
             return (Criteria) this;
         }
 
@@ -235,52 +245,62 @@ public class DeviceOutExample {
             return (Criteria) this;
         }
 
-        public Criteria andOutterEqualTo(Integer value) {
+        public Criteria andOutterEqualTo(String value) {
             addCriterion("outter =", value, "outter");
             return (Criteria) this;
         }
 
-        public Criteria andOutterNotEqualTo(Integer value) {
+        public Criteria andOutterNotEqualTo(String value) {
             addCriterion("outter <>", value, "outter");
             return (Criteria) this;
         }
 
-        public Criteria andOutterGreaterThan(Integer value) {
+        public Criteria andOutterGreaterThan(String value) {
             addCriterion("outter >", value, "outter");
             return (Criteria) this;
         }
 
-        public Criteria andOutterGreaterThanOrEqualTo(Integer value) {
+        public Criteria andOutterGreaterThanOrEqualTo(String value) {
             addCriterion("outter >=", value, "outter");
             return (Criteria) this;
         }
 
-        public Criteria andOutterLessThan(Integer value) {
+        public Criteria andOutterLessThan(String value) {
             addCriterion("outter <", value, "outter");
             return (Criteria) this;
         }
 
-        public Criteria andOutterLessThanOrEqualTo(Integer value) {
+        public Criteria andOutterLessThanOrEqualTo(String value) {
             addCriterion("outter <=", value, "outter");
             return (Criteria) this;
         }
 
-        public Criteria andOutterIn(List<Integer> values) {
+        public Criteria andOutterLike(String value) {
+            addCriterion("outter like", value, "outter");
+            return (Criteria) this;
+        }
+
+        public Criteria andOutterNotLike(String value) {
+            addCriterion("outter not like", value, "outter");
+            return (Criteria) this;
+        }
+
+        public Criteria andOutterIn(List<String> values) {
             addCriterion("outter in", values, "outter");
             return (Criteria) this;
         }
 
-        public Criteria andOutterNotIn(List<Integer> values) {
+        public Criteria andOutterNotIn(List<String> values) {
             addCriterion("outter not in", values, "outter");
             return (Criteria) this;
         }
 
-        public Criteria andOutterBetween(Integer value1, Integer value2) {
+        public Criteria andOutterBetween(String value1, String value2) {
             addCriterion("outter between", value1, value2, "outter");
             return (Criteria) this;
         }
 
-        public Criteria andOutterNotBetween(Integer value1, Integer value2) {
+        public Criteria andOutterNotBetween(String value1, String value2) {
             addCriterion("outter not between", value1, value2, "outter");
             return (Criteria) this;
         }
@@ -425,52 +445,62 @@ public class DeviceOutExample {
             return (Criteria) this;
         }
 
-        public Criteria andApproverEqualTo(Integer value) {
+        public Criteria andApproverEqualTo(String value) {
             addCriterion("approver =", value, "approver");
             return (Criteria) this;
         }
 
-        public Criteria andApproverNotEqualTo(Integer value) {
+        public Criteria andApproverNotEqualTo(String value) {
             addCriterion("approver <>", value, "approver");
             return (Criteria) this;
         }
 
-        public Criteria andApproverGreaterThan(Integer value) {
+        public Criteria andApproverGreaterThan(String value) {
             addCriterion("approver >", value, "approver");
             return (Criteria) this;
         }
 
-        public Criteria andApproverGreaterThanOrEqualTo(Integer value) {
+        public Criteria andApproverGreaterThanOrEqualTo(String value) {
             addCriterion("approver >=", value, "approver");
             return (Criteria) this;
         }
 
-        public Criteria andApproverLessThan(Integer value) {
+        public Criteria andApproverLessThan(String value) {
             addCriterion("approver <", value, "approver");
             return (Criteria) this;
         }
 
-        public Criteria andApproverLessThanOrEqualTo(Integer value) {
+        public Criteria andApproverLessThanOrEqualTo(String value) {
             addCriterion("approver <=", value, "approver");
             return (Criteria) this;
         }
 
-        public Criteria andApproverIn(List<Integer> values) {
+        public Criteria andApproverLike(String value) {
+            addCriterion("approver like", value, "approver");
+            return (Criteria) this;
+        }
+
+        public Criteria andApproverNotLike(String value) {
+            addCriterion("approver not like", value, "approver");
+            return (Criteria) this;
+        }
+
+        public Criteria andApproverIn(List<String> values) {
             addCriterion("approver in", values, "approver");
             return (Criteria) this;
         }
 
-        public Criteria andApproverNotIn(List<Integer> values) {
+        public Criteria andApproverNotIn(List<String> values) {
             addCriterion("approver not in", values, "approver");
             return (Criteria) this;
         }
 
-        public Criteria andApproverBetween(Integer value1, Integer value2) {
+        public Criteria andApproverBetween(String value1, String value2) {
             addCriterion("approver between", value1, value2, "approver");
             return (Criteria) this;
         }
 
-        public Criteria andApproverNotBetween(Integer value1, Integer value2) {
+        public Criteria andApproverNotBetween(String value1, String value2) {
             addCriterion("approver not between", value1, value2, "approver");
             return (Criteria) this;
         }
