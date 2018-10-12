@@ -132,4 +132,12 @@ public class User {
     public void setMdtm(Date mdtm) {
         this.mdtm = mdtm;
     }
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", rid=" + rid + ", ogid=" + ogid + ", name=" + name + ", pwd=" + pwd + ", sex=" + sex
+				+ ", birth=" + birth + ", phone=" + phone + ", email=" + email + ", loginTime=" + loginTime
+				+ ", loginIp=" + loginIp + ", crtm=" + crtm + ", mdtm=" + mdtm + "]";
+	}
+    
 }
