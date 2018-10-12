@@ -33,7 +33,7 @@ public class RoleServlet {
 		ModelAndView modelAndView = new ModelAndView();
 		Role role = roleService.selectOne(id);
 		modelAndView.addObject("role", role);
-		modelAndView.setViewName("/WEB-INF/page/system-role-edit.jsp");
+		modelAndView.setViewName("forward:/WEB-INF/page/system/system-role-edit.jsp");
 		return modelAndView;
 	}
 
@@ -47,7 +47,7 @@ public class RoleServlet {
 	@RequestMapping("/add")
 	public ModelAndView add() {
 		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("/WEB-INF/page/system/system-role-add.jsp");
+		modelAndView.setViewName("forward:/WEB-INF/page/system/system-role-add.jsp");
 		return modelAndView;
 	}
 
