@@ -1,5 +1,6 @@
 package zhku.zhou.asset.controller.system;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,9 +17,9 @@ import zhku.zhou.asset.service.system.RoleService;
 public class RoleServlet {
 	@Autowired
 	private RoleService roleService;
+
 	@RequestMapping("/list")
-	public ModelAndView getAll()
-	{
+	public ModelAndView getAll() {
 		ModelAndView modelAndView = new ModelAndView();
 		List<Role> list = roleService.getAll();
 		modelAndView.addObject("list", list);
@@ -26,38 +27,48 @@ public class RoleServlet {
 		modelAndView.setViewName("forward:/WEB-INF/page/system/system-role.jsp");
 		return modelAndView;
 	}
+
 	@RequestMapping("/edit")
-	public ModelAndView edit(Integer id)
-	{
+	public ModelAndView edit(Integer id) {
 		ModelAndView modelAndView = new ModelAndView();
 		Role role = roleService.selectOne(id);
 		modelAndView.addObject("role", role);
 		modelAndView.setViewName("/WEB-INF/page/system-role-edit.jsp");
 		return modelAndView;
 	}
+
 	@ResponseBody
 	@RequestMapping("/editAfter")
-	public int editAfter(Role role)
-	{
+	public int editAfter(Role role) {
+		role.setMdtm(new Date());
 		return roleService.updateOne(role);
 	}
+
 	@RequestMapping("/add")
-	public ModelAndView add()
-	{
+	public ModelAndView add() {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("/WEB-INF/page/system/system-role-add.jsp");
 		return modelAndView;
 	}
+
 	@ResponseBody
 	@RequestMapping("/addAfter")
-	public int addAfter(Role role)
-	{
+	public int addAfter(Role role) {
+		role.setCrtm(new Date());
+		role.setMdtm(new Date());
 		return roleService.addOne(role);
 	}
+
 	@ResponseBody
 	@RequestMapping("/deleteOne")
-	public int deleteOne(int id)
-	{
-		return roleService.deleteOne(id);
+	public int deleteOne(int id) {
+		// 查找是否有用户使用该角色
+		int count = roleService.countForRole(id);
+		// 没有就可以删除,有则不能删除
+		if (count == 0) {
+			return roleService.deleteOne(id);
+		} else {
+			return 0;
+		}
 	}
 }
