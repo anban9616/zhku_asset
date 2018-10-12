@@ -13,5 +13,10 @@ public class Test {
         DecimalFormat df = new DecimalFormat("0000");
         String id = df.format(5); //次id即为四位不重复的流水号
         System.out.println(id);
+        int i = 789;
+        System.out.println(i%10);
+        System.out.println((i/10)%10);
+        System.out.println((i/100)%10);
+        
 	}
 }
