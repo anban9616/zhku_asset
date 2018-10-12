@@ -15,13 +15,7 @@ public class Role {
 
     private Integer devicePower;
 
-    private Integer carPower;
-
-    private Integer fbPower;
-
-    private Integer landPower;
-
-    private Integer housePower;
+    private Integer systemPower;
 
     public Integer getId() {
         return id;
@@ -71,35 +65,11 @@ public class Role {
         this.devicePower = devicePower;
     }
 
-    public Integer getCarPower() {
-        return carPower;
+    public Integer getSystemPower() {
+        return systemPower;
     }
 
-    public void setCarPower(Integer carPower) {
-        this.carPower = carPower;
-    }
-
-    public Integer getFbPower() {
-        return fbPower;
-    }
-
-    public void setFbPower(Integer fbPower) {
-        this.fbPower = fbPower;
-    }
-
-    public Integer getLandPower() {
-        return landPower;
-    }
-
-    public void setLandPower(Integer landPower) {
-        this.landPower = landPower;
-    }
-
-    public Integer getHousePower() {
-        return housePower;
-    }
-
-    public void setHousePower(Integer housePower) {
-        this.housePower = housePower;
+    public void setSystemPower(Integer systemPower) {
+        this.systemPower = systemPower;
     }
 }

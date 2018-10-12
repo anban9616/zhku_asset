@@ -485,243 +485,63 @@ public class RoleExample {
             return (Criteria) this;
         }
 
-        public Criteria andCarPowerIsNull() {
-            addCriterion("car_power is null");
+        public Criteria andSystemPowerIsNull() {
+            addCriterion("system_power is null");
             return (Criteria) this;
         }
 
-        public Criteria andCarPowerIsNotNull() {
-            addCriterion("car_power is not null");
+        public Criteria andSystemPowerIsNotNull() {
+            addCriterion("system_power is not null");
             return (Criteria) this;
         }
 
-        public Criteria andCarPowerEqualTo(Integer value) {
-            addCriterion("car_power =", value, "carPower");
+        public Criteria andSystemPowerEqualTo(Integer value) {
+            addCriterion("system_power =", value, "systemPower");
             return (Criteria) this;
         }
 
-        public Criteria andCarPowerNotEqualTo(Integer value) {
-            addCriterion("car_power <>", value, "carPower");
+        public Criteria andSystemPowerNotEqualTo(Integer value) {
+            addCriterion("system_power <>", value, "systemPower");
             return (Criteria) this;
         }
 
-        public Criteria andCarPowerGreaterThan(Integer value) {
-            addCriterion("car_power >", value, "carPower");
+        public Criteria andSystemPowerGreaterThan(Integer value) {
+            addCriterion("system_power >", value, "systemPower");
             return (Criteria) this;
         }
 
-        public Criteria andCarPowerGreaterThanOrEqualTo(Integer value) {
-            addCriterion("car_power >=", value, "carPower");
+        public Criteria andSystemPowerGreaterThanOrEqualTo(Integer value) {
+            addCriterion("system_power >=", value, "systemPower");
             return (Criteria) this;
         }
 
-        public Criteria andCarPowerLessThan(Integer value) {
-            addCriterion("car_power <", value, "carPower");
+        public Criteria andSystemPowerLessThan(Integer value) {
+            addCriterion("system_power <", value, "systemPower");
             return (Criteria) this;
         }
 
-        public Criteria andCarPowerLessThanOrEqualTo(Integer value) {
-            addCriterion("car_power <=", value, "carPower");
+        public Criteria andSystemPowerLessThanOrEqualTo(Integer value) {
+            addCriterion("system_power <=", value, "systemPower");
             return (Criteria) this;
         }
 
-        public Criteria andCarPowerIn(List<Integer> values) {
-            addCriterion("car_power in", values, "carPower");
+        public Criteria andSystemPowerIn(List<Integer> values) {
+            addCriterion("system_power in", values, "systemPower");
             return (Criteria) this;
         }
 
-        public Criteria andCarPowerNotIn(List<Integer> values) {
-            addCriterion("car_power not in", values, "carPower");
+        public Criteria andSystemPowerNotIn(List<Integer> values) {
+            addCriterion("system_power not in", values, "systemPower");
             return (Criteria) this;
         }
 
-        public Criteria andCarPowerBetween(Integer value1, Integer value2) {
-            addCriterion("car_power between", value1, value2, "carPower");
+        public Criteria andSystemPowerBetween(Integer value1, Integer value2) {
+            addCriterion("system_power between", value1, value2, "systemPower");
             return (Criteria) this;
         }
 
-        public Criteria andCarPowerNotBetween(Integer value1, Integer value2) {
-            addCriterion("car_power not between", value1, value2, "carPower");
-            return (Criteria) this;
-        }
-
-        public Criteria andFbPowerIsNull() {
-            addCriterion("fb_power is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andFbPowerIsNotNull() {
-            addCriterion("fb_power is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andFbPowerEqualTo(Integer value) {
-            addCriterion("fb_power =", value, "fbPower");
-            return (Criteria) this;
-        }
-
-        public Criteria andFbPowerNotEqualTo(Integer value) {
-            addCriterion("fb_power <>", value, "fbPower");
-            return (Criteria) this;
-        }
-
-        public Criteria andFbPowerGreaterThan(Integer value) {
-            addCriterion("fb_power >", value, "fbPower");
-            return (Criteria) this;
-        }
-
-        public Criteria andFbPowerGreaterThanOrEqualTo(Integer value) {
-            addCriterion("fb_power >=", value, "fbPower");
-            return (Criteria) this;
-        }
-
-        public Criteria andFbPowerLessThan(Integer value) {
-            addCriterion("fb_power <", value, "fbPower");
-            return (Criteria) this;
-        }
-
-        public Criteria andFbPowerLessThanOrEqualTo(Integer value) {
-            addCriterion("fb_power <=", value, "fbPower");
-            return (Criteria) this;
-        }
-
-        public Criteria andFbPowerIn(List<Integer> values) {
-            addCriterion("fb_power in", values, "fbPower");
-            return (Criteria) this;
-        }
-
-        public Criteria andFbPowerNotIn(List<Integer> values) {
-            addCriterion("fb_power not in", values, "fbPower");
-            return (Criteria) this;
-        }
-
-        public Criteria andFbPowerBetween(Integer value1, Integer value2) {
-            addCriterion("fb_power between", value1, value2, "fbPower");
-            return (Criteria) this;
-        }
-
-        public Criteria andFbPowerNotBetween(Integer value1, Integer value2) {
-            addCriterion("fb_power not between", value1, value2, "fbPower");
-            return (Criteria) this;
-        }
-
-        public Criteria andLandPowerIsNull() {
-            addCriterion("land_power is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andLandPowerIsNotNull() {
-            addCriterion("land_power is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andLandPowerEqualTo(Integer value) {
-            addCriterion("land_power =", value, "landPower");
-            return (Criteria) this;
-        }
-
-        public Criteria andLandPowerNotEqualTo(Integer value) {
-            addCriterion("land_power <>", value, "landPower");
-            return (Criteria) this;
-        }
-
-        public Criteria andLandPowerGreaterThan(Integer value) {
-            addCriterion("land_power >", value, "landPower");
-            return (Criteria) this;
-        }
-
-        public Criteria andLandPowerGreaterThanOrEqualTo(Integer value) {
-            addCriterion("land_power >=", value, "landPower");
-            return (Criteria) this;
-        }
-
-        public Criteria andLandPowerLessThan(Integer value) {
-            addCriterion("land_power <", value, "landPower");
-            return (Criteria) this;
-        }
-
-        public Criteria andLandPowerLessThanOrEqualTo(Integer value) {
-            addCriterion("land_power <=", value, "landPower");
-            return (Criteria) this;
-        }
-
-        public Criteria andLandPowerIn(List<Integer> values) {
-            addCriterion("land_power in", values, "landPower");
-            return (Criteria) this;
-        }
-
-        public Criteria andLandPowerNotIn(List<Integer> values) {
-            addCriterion("land_power not in", values, "landPower");
-            return (Criteria) this;
-        }
-
-        public Criteria andLandPowerBetween(Integer value1, Integer value2) {
-            addCriterion("land_power between", value1, value2, "landPower");
-            return (Criteria) this;
-        }
-
-        public Criteria andLandPowerNotBetween(Integer value1, Integer value2) {
-            addCriterion("land_power not between", value1, value2, "landPower");
-            return (Criteria) this;
-        }
-
-        public Criteria andHousePowerIsNull() {
-            addCriterion("house_power is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andHousePowerIsNotNull() {
-            addCriterion("house_power is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andHousePowerEqualTo(Integer value) {
-            addCriterion("house_power =", value, "housePower");
-            return (Criteria) this;
-        }
-
-        public Criteria andHousePowerNotEqualTo(Integer value) {
-            addCriterion("house_power <>", value, "housePower");
-            return (Criteria) this;
-        }
-
-        public Criteria andHousePowerGreaterThan(Integer value) {
-            addCriterion("house_power >", value, "housePower");
-            return (Criteria) this;
-        }
-
-        public Criteria andHousePowerGreaterThanOrEqualTo(Integer value) {
-            addCriterion("house_power >=", value, "housePower");
-            return (Criteria) this;
-        }
-
-        public Criteria andHousePowerLessThan(Integer value) {
-            addCriterion("house_power <", value, "housePower");
-            return (Criteria) this;
-        }
-
-        public Criteria andHousePowerLessThanOrEqualTo(Integer value) {
-            addCriterion("house_power <=", value, "housePower");
-            return (Criteria) this;
-        }
-
-        public Criteria andHousePowerIn(List<Integer> values) {
-            addCriterion("house_power in", values, "housePower");
-            return (Criteria) this;
-        }
-
-        public Criteria andHousePowerNotIn(List<Integer> values) {
-            addCriterion("house_power not in", values, "housePower");
-            return (Criteria) this;
-        }
-
-        public Criteria andHousePowerBetween(Integer value1, Integer value2) {
-            addCriterion("house_power between", value1, value2, "housePower");
-            return (Criteria) this;
-        }
-
-        public Criteria andHousePowerNotBetween(Integer value1, Integer value2) {
-            addCriterion("house_power not between", value1, value2, "housePower");
+        public Criteria andSystemPowerNotBetween(Integer value1, Integer value2) {
+            addCriterion("system_power not between", value1, value2, "systemPower");
             return (Criteria) this;
         }
     }
