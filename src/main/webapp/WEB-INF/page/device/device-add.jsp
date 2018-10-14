@@ -16,12 +16,12 @@
 <body>
 <article class="page-container">
 	<form class="form form-horizontal" id="form-admin-add">
-	<div class="row cl">
+<!-- 	<div class="row cl">
 		<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>设备流水号：</label>
 		<div class="formControls col-xs-8 col-sm-9">
 			<input type="text" class="input-text" value="" placeholder="" id="code" name="code">
 		</div>
-	</div>
+	</div> -->
 	<div class="row cl">
 		<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>设备序列号：</label>
 		<div class="formControls col-xs-8 col-sm-9">
@@ -103,11 +103,6 @@ $(function(){
 		});
 	$("#form-admin-add").validate({
 		rules:{
-			code:{
-				required:true,
-				minlength: 7,
-				maxlength: 8
-			},
 			sno:{
 				required:true,
 				minlength: 5,

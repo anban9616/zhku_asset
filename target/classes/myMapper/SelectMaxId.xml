@@ -6,4 +6,9 @@
   		FROM device_receive 
   		WHERE id = (SELECT MAX(id) FROM device_receive)
   </select>
+  <select id="deviceMaxId" resultType="zhku.zhou.asset.entity.Device">
+  	SELECT * 
+  		FROM device
+  		WHERE id = (SELECT MAX(id) FROM device)
+  </select>
 </mapper>

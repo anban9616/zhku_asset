@@ -11,13 +11,13 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
 <meta http-equiv="Cache-Control" content="no-siteapp" />
 <%@include file="/WEB-INF/page/common/header.jsp" %>
-<title>添加管理员 - 管理员管理 - H-ui.admin v3.1</title>
+<title>添加用户 - 用户管理 - H-ui.admin v3.1</title>
 </head>
 <body>
 <article class="page-container">
 	<form class="form form-horizontal" id="form-admin-add">
 	<div class="row cl">
-		<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>管理员：</label>
+		<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>用户名：</label>
 		<div class="formControls col-xs-8 col-sm-9">
 			<input type="text" class="input-text" value="" placeholder="" id="adminName" name="name">
 		</div>

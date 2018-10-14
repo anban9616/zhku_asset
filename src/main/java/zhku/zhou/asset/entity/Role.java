@@ -72,4 +72,11 @@ public class Role {
     public void setSystemPower(Integer systemPower) {
         this.systemPower = systemPower;
     }
+
+	@Override
+	public String toString() {
+		return "Role [id=" + id + ", name=" + name + ", remarks=" + remarks + ", crtm=" + crtm + ", mdtm=" + mdtm
+				+ ", devicePower=" + devicePower + ", systemPower=" + systemPower + "]";
+	}
+    
 }

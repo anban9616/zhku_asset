@@ -26,7 +26,7 @@
 		</div>
 		<div class="cl pd-5 bg-1 bk-gray mt-20">
 			<span class="l"> <a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a
-				href="javascript:;" onclick="role_add('添加角色','${path}/role/add','800','500')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加用户</a>
+				href="javascript:;" onclick="role_add('添加角色','${path}/role/add','900','600')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加用户</a>
 			</span> <span class="r">共有数据：<strong>${requestScope.count }</strong> 条
 			</span>
 		</div>
@@ -58,7 +58,7 @@
 						<td><fmt:formatDate value="${item.mdtm }" pattern="yyyy-MM-dd" /></td>
 						<td>${item.devicePower }</td>
 						<td>${item.systemPower }</td>
-						<td class="td-manage"><a title="编辑" href="javascript:;" onclick="role_edit('管理员编辑','${path}/role/edit?id=${item.id }','800','500')" class="ml-5"
+						<td class="td-manage"><a title="编辑" href="javascript:;" onclick="role_edit('管理员编辑','${path}/role/edit?id=${item.id }','900','600')" class="ml-5"
 							style="text-decoration: none"><i class="Hui-iconfont">&#xe6df;</i></a> <a title="删除" href="javascript:;" onclick="role_del(this,${item.id})" class="ml-5"
 							style="text-decoration: none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
 					</tr>
