@@ -59,17 +59,21 @@ public class DeviceManagerFilter implements Filter {
 		if (strs.length >= 6) {
 			str5 = strs[5];
 		}
+		if(str4.equals("lib")||str4.equals("static"))
+		{
+			chain.doFilter(request, response);
+			return;
+		}
 		// 获取用户
 		User user2 = (User) httpServletRequest.getSession().getAttribute("user2");
 		if(user2==null)
 		{
 			httpServletResponse.sendRedirect(httpServletRequest.getContextPath()+"/admin-login.jsp");
 		}
-		System.out.println(user2);
-		System.out.println(roleService);
+		System.out.println("user2"+user2);
 		// 获取对应的角色
 		Role role = deviceManagerFilter.roleService.selectOne(user2.getRid());
-		System.out.println(role);
+		System.out.println("role"+role);
 		int systemPower = role.getSystemPower();
 		int devicePower = role.getDevicePower();
 		// 判断路径device,deviceOut,deviceReceice...
@@ -102,6 +106,7 @@ public class DeviceManagerFilter implements Filter {
 		default:
 			break;
 		}
+		System.out.println("--------->power:"+power);
 		boolean flag = false;// 是否有权力去目标路径
 		boolean flag2 = true;// 是否存在该路径
 		switch (str5) {
@@ -142,6 +147,7 @@ public class DeviceManagerFilter implements Filter {
 				return ;
 			} else {
 				// forbidden
+				System.out.println("------------->power2"+power);
 				httpServletRequest.getRequestDispatcher("/forbidden.html").forward(httpServletRequest, httpServletResponse);
 			}
 		} else {

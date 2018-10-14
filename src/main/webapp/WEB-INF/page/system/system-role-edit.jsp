@@ -15,6 +15,7 @@
 <body>
 	<article class="page-container">
 		<form class="form form-horizontal" id="form-admin-add">
+			<input name="id" type="hidden" value="${requestScope.role.id }">
 			<input name="systemPower" type="hidden" value="${requestScope.role.systemPower }"/>
 			<input name="devicePower" type="hidden" value="${requestScope.role.devicePower }"/>
 			<div class="row cl">
@@ -227,7 +228,7 @@
 					$(form).ajaxSubmit({
 						async:false,
 						type: 'post',
-						url: "${applicationScope.path }/role/addAfter",
+						url: "${applicationScope.path }/role/editAfter",
 						success: function(data){
 							if(data){
 								layer.msg('添加成功!',{icon:1,time:1000});

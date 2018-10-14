@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import zhku.zhou.asset.dao.DeviceMapper;
 import zhku.zhou.asset.dao.DevicePageMapper;
+import zhku.zhou.asset.dao.SelectMaxIdMapper;
 import zhku.zhou.asset.entity.Device;
 import zhku.zhou.asset.entity.DeviceExample;
 import zhku.zhou.asset.entity.DeviceExample.Criteria;
@@ -19,6 +20,8 @@ public class DeviceService {
 	private DevicePageMapper devicePageMapper;
 	@Autowired 
 	private DeviceMapper deviceMapper;
+	@Autowired
+	private SelectMaxIdMapper selectMaxIdMapper;
 	public List<DevicePage> selectAll()
 	{
 		DevicePageExample example = new DevicePageExample();
@@ -52,5 +55,9 @@ public class DeviceService {
 	public int updateOne(Device device)
 	{
 		return deviceMapper.updateByPrimaryKeySelective(device);
+	}
+	public Device selectMaxId()
+	{
+		return selectMaxIdMapper.deviceMaxId();
 	}
 }
