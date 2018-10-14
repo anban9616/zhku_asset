@@ -32,7 +32,7 @@
 			</span> <span class="r">共有数据：<strong>${requestScope.count }</strong> 条
 			</span>
 		</div>
-		<table class="table table-border table-bordered table-bg">
+		<table class="table table-border table-bordered table-bg table-sort">
 			<thead>
 				<tr>
 					<th scope="col" colspan="15">用户列表</th>
@@ -95,6 +95,18 @@
 	w		弹出层宽度（缺省调默认值）
 	h		弹出层高度（缺省调默认值）
 */
+/*表格排序*/
+$(function(){
+	$('.table-sort').dataTable({
+		"aaSorting": [[ 1, "desc" ]],//默认第几个排序
+		"bStateSave": true,//状态保存
+		"aoColumnDefs": [
+		  //{"bVisible": false, "aTargets": [ 3 ]} //控制列的隐藏显示
+		  {"orderable":false,"aTargets":[0,12]}// 制定列不参与排序
+		]
+	});
+	
+});
 /*设备领取类型-增加*/
 function admin_add(title,url,w,h){
 	layer_show(title,url,w,h);

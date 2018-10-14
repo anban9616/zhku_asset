@@ -30,7 +30,7 @@
 			</span> <span class="r">共有数据：<strong>${requestScope.count }</strong> 条
 			</span>
 		</div>
-		<table class="table table-border table-bordered table-bg">
+		<table class="table table-border table-bordered table-bg table-sort">
 			<thead>
 				<tr>
 					<th scope="col" colspan="15">角色列表</th>
@@ -81,6 +81,18 @@
 	w		弹出层宽度（缺省调默认值）
 	h		弹出层高度（缺省调默认值）
 */
+/* 表格排序 */
+$(function(){
+	$('.table-sort').dataTable({
+		"aaSorting": [[ 1, "desc" ]],//默认第几个排序
+		"bStateSave": true,//状态保存
+		"aoColumnDefs": [
+		  //{"bVisible": false, "aTargets": [ 3 ]} //控制列的隐藏显示
+		  {"orderable":false,"aTargets":[0,8]}// 制定列不参与排序
+		]
+	});
+	
+});
 /*管理员-增加*/
 function role_add(title,url,w,h){
 	layer_show(title,url,w,h);
