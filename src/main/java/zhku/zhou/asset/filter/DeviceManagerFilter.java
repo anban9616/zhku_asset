@@ -22,15 +22,6 @@ import zhku.zhou.asset.service.system.RoleService;
 @Component
 @WebFilter("/*")
 public class DeviceManagerFilter implements Filter {
-	@Autowired
-	private RoleService roleService;
-	public static DeviceManagerFilter deviceManagerFilter;
-	
-	@PostConstruct
-	public void init1()
-	{
-		deviceManagerFilter = this;
-	}
 	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {
 		
@@ -69,10 +60,11 @@ public class DeviceManagerFilter implements Filter {
 		if(user2==null)
 		{
 			httpServletResponse.sendRedirect(httpServletRequest.getContextPath()+"/admin-login.jsp");
+			return ;
 		}
 		System.out.println("user2"+user2);
 		// 获取对应的角色
-		Role role = deviceManagerFilter.roleService.selectOne(user2.getRid());
+		Role role = (Role) httpServletRequest.getSession().getAttribute("role2");
 		System.out.println("role"+role);
 		int systemPower = role.getSystemPower();
 		int devicePower = role.getDevicePower();
@@ -147,8 +139,10 @@ public class DeviceManagerFilter implements Filter {
 				return ;
 			} else {
 				// forbidden
+				System.out.println("------------------------------------------------------------->>>");
 				System.out.println("------------->power2"+power);
-				httpServletRequest.getRequestDispatcher("/forbidden.html").forward(httpServletRequest, httpServletResponse);
+				//httpServletRequest.getRequestDispatcher("/forbidden.html").forward(httpServletRequest, httpServletResponse);
+				httpServletResponse.sendRedirect("/assets/forbidden.html");
 			}
 		} else {
 			// 404
