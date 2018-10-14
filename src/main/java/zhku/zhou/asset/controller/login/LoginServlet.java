@@ -12,8 +12,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import zhku.zhou.asset.entity.Role;
 import zhku.zhou.asset.entity.User;
 import zhku.zhou.asset.service.login.LoginService;
+import zhku.zhou.asset.service.system.RoleService;
 import zhku.zhou.asset.utils.IpUtil;
 
 @Controller
@@ -21,6 +23,8 @@ import zhku.zhou.asset.utils.IpUtil;
 public class LoginServlet {
 	@Autowired
 	private LoginService loginService;
+	@Autowired
+	private RoleService roleService;
 	@RequestMapping("/login")
 	public ModelAndView login(HttpServletRequest request,User user) {
 		ModelAndView mav = new ModelAndView();
@@ -30,14 +34,12 @@ public class LoginServlet {
 			userList = loginService.login(user);
 			//userList.get(0)在获取不到的时候抛出异常
 			User user2 = userList.get(0);
+			Role role2 = roleService.selectOne(user2.getRid());
+			session.setAttribute("role2", role2);
 			user2.setLoginTime(new Date());
 			String ip=IpUtil.getIpAddress(request);
 			user2.setLoginIp(ip);
-			int j = loginService.updateLoginTime(user2);
-			if(j==0)
-				System.out.println("修改登录时间失败！");
-			else
-				System.out.println("修改登录时间成功！");
+			loginService.updateLoginTime(user2);
 			session.setAttribute("user2", user2);
 			mav.setViewName("forward:/WEB-INF/page/index.jsp");
 			return mav;
@@ -52,6 +54,7 @@ public class LoginServlet {
 	{
 		HttpSession session = request.getSession();
 		session.removeAttribute("user2");
+		session.removeAttribute("role2");
 		session.removeAttribute("loginMessage");
 		return new ModelAndView("redirect:/admin-login.jsp");
 	}
