@@ -69,6 +69,7 @@ public class DeviceManagerFilter implements Filter {
 		if(user2==null)
 		{
 			httpServletResponse.sendRedirect(httpServletRequest.getContextPath()+"/admin-login.jsp");
+			return ;
 		}
 		System.out.println("user2"+user2);
 		// 获取对应的角色
