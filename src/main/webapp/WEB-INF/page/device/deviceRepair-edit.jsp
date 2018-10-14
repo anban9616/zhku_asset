@@ -17,10 +17,11 @@
 <article class="page-container">
 	<form class="form form-horizontal" id="form-deviceRepair-edit">
 	<input name="id" type="hidden" value="${requestScope.deviceRepair.id }"> 
+	<input name="did" type="hidden" value="${requestScope.deviceRepair.did }"> 
 	<div class="row cl">
-		<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>报修备注：</label>
+		<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>维修备注：</label>
 		<div class="formControls col-xs-8 col-sm-9">
-			<input type="text" class="input-text" value="" placeholder="" id="repairRemarks" name="repairRemarks">
+			<input type="text" class="input-text" value="${requestScope.deviceRepair.repairRemarks }" placeholder="" id="repairRemarks" name="repairRemarks">
 		</div>
 	</div>
 	<input id="status" type="hidden" value="${requestScope.deviceRepair.status }">
@@ -33,11 +34,7 @@
 			</div>
 			<div class="radio-box">
 				<input type="radio" id="status-2" name="status" value="2">
-				<label for="status-2">修不好</label>
-			</div>
-			<div class="radio-box">
-				<input type="radio" id="status-3" name="status" value="3">
-				<label for="status-3">修好了</label>
+				<label for="status-2">修完了</label>
 			</div>
 		</div>
 	</div>

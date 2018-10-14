@@ -67,8 +67,7 @@
 						<td>${item.repairRemarks }</td>
 						<td>
 							<c:if test="${item.status ==1}">报修</c:if>
-							<c:if test="${item.status ==2}">修不好</c:if>
-							<c:if test="${item.status ==3}">修好了</c:if>
+							<c:if test="${item.status ==2}">修完了</c:if>
 						</td>
 						<td><fmt:formatDate value="${item.crtm }" pattern="yyyy-MM-dd hh:mm:ss" /></td>
 						<td><fmt:formatDate value="${item.mdtm }" pattern="yyyy-MM-dd hh:mm:ss" /></td>

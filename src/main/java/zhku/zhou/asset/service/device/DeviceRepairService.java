@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 import zhku.zhou.asset.dao.DeviceRepairMapper;
 import zhku.zhou.asset.dao.DeviceRepairPageMapper;
 import zhku.zhou.asset.entity.DeviceRepair;
+import zhku.zhou.asset.entity.DeviceRepairExample;
+import zhku.zhou.asset.entity.DeviceRepairExample.Criteria;
 import zhku.zhou.asset.entity.DeviceRepairPage;
 import zhku.zhou.asset.entity.DeviceRepairPageExample;
 
@@ -37,5 +39,12 @@ public class DeviceRepairService {
 	public DeviceRepair selectOne(int id)
 	{
 		return deviceRepairMapper.selectByPrimaryKey(id);
+	}
+	public int deleteByDeviceId(int id)
+	{
+		DeviceRepairExample example = new DeviceRepairExample();
+		Criteria criteria = example.createCriteria();
+		criteria.andDidEqualTo(id);
+		return deviceRepairMapper.deleteByExample(example);
 	}
 }

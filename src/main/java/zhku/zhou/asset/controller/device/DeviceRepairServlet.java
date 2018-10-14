@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
+
 import zhku.zhou.asset.entity.Device;
 import zhku.zhou.asset.entity.DeviceRepair;
 import zhku.zhou.asset.entity.DeviceRepairPage;
@@ -83,6 +85,20 @@ public class DeviceRepairServlet {
 		deviceRepair.setMdtm(new Date());
 		deviceRepair.setRepairDate(new Date());
 		deviceRepair.setRepairer(user2.getId());
+		if (deviceRepair.getStatus()==2) {
+			Device device = new Device();
+			device.setId(deviceRepair.getDid());
+			device.setStatus((short) 1);
+			int i = deviceService.updateOne(device);
+			if(i==0)
+			{
+				System.out.println("设备维修更新设备状态失败");
+			}
+			if(i==1)
+			{
+				System.out.println("设备维修更新设备状态成功");
+			}
+		}
 		return deviceRepairService.updateOne(deviceRepair);
 	}
 }

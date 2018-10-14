@@ -22,6 +22,12 @@ public class DeviceService {
 	private DeviceMapper deviceMapper;
 	@Autowired
 	private SelectMaxIdMapper selectMaxIdMapper;
+	@Autowired
+	private DeviceReceiveService deviceReceiveService;
+	@Autowired
+	private DeviceRepairService deviceRepairService;
+	@Autowired
+	private DeviceOutService deviceOutService;
 	public List<DevicePage> selectAll()
 	{
 		DevicePageExample example = new DevicePageExample();
@@ -41,6 +47,9 @@ public class DeviceService {
 	}
 	public int deleteOne(int id)
 	{
+		deviceOutService.deleteByDeviceId(id);
+		deviceReceiveService.deleteByDeviceId(id);
+		deviceRepairService.deleteByDeviceId(id);
 		return deviceMapper.deleteByPrimaryKey(id);
 	}
 	public Device selectOne(int id)
