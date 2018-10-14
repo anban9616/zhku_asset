@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 import zhku.zhou.asset.dao.DeviceOutMapper;
 import zhku.zhou.asset.dao.DeviceOutPageMapper;
 import zhku.zhou.asset.entity.DeviceOut;
+import zhku.zhou.asset.entity.DeviceOutExample;
+import zhku.zhou.asset.entity.DeviceOutExample.Criteria;
 import zhku.zhou.asset.entity.DeviceOutPage;
 import zhku.zhou.asset.entity.DeviceOutPageExample;
 
@@ -37,5 +39,12 @@ public class DeviceOutService {
 	public DeviceOut selectOne(int id)
 	{
 		return deviceOutMapper.selectByPrimaryKey(id);
+	}
+	public int deleteByDeviceId(int id)
+	{
+		DeviceOutExample example = new DeviceOutExample();
+		Criteria criteria =  example.createCriteria();
+		criteria.andDidEqualTo(id);
+		return deviceOutMapper.deleteByExample(example);
 	}
 }

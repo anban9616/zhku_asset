@@ -9,6 +9,8 @@ import zhku.zhou.asset.dao.DeviceReceiveMapper;
 import zhku.zhou.asset.dao.DeviceReceivePageMapper;
 import zhku.zhou.asset.dao.SelectMaxIdMapper;
 import zhku.zhou.asset.entity.DeviceReceive;
+import zhku.zhou.asset.entity.DeviceReceiveExample;
+import zhku.zhou.asset.entity.DeviceReceiveExample.Criteria;
 import zhku.zhou.asset.entity.DeviceReceivePage;
 import zhku.zhou.asset.entity.DeviceReceivePageExample;
 
@@ -45,5 +47,12 @@ public class DeviceReceiveService {
 	public DeviceReceive selectMaxId()
 	{
 		return selectMaxIdMapper.deviceReceiveMaxId();
+	}
+	public int deleteByDeviceId(int id)
+	{
+		DeviceReceiveExample example = new DeviceReceiveExample();
+		Criteria criteria =  example.createCriteria();
+		criteria.andDidEqualTo(id);
+		return deviceReceiveMapper.deleteByExample(example);
 	}
 }

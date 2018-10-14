@@ -61,6 +61,9 @@ $(function(){
 				minlength: 1,
 				maxlength: 200
 			},
+			did:{
+				required: true,
+			}
 		},
 		onkeyup:false,
 		focusCleanup:true,

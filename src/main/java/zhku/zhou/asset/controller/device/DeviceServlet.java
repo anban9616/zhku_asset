@@ -71,7 +71,7 @@ public class DeviceServlet {
 		String dj = null;
 		if(device2==null)
 		{
-	        dj = "DJS" + getYear() + "0001";
+	        dj = "S" + getYear() + "0001";
 		} else 
 		{
 			dj = getDJ(device2.getCode());
