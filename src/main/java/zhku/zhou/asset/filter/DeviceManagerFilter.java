@@ -140,7 +140,7 @@ public class DeviceManagerFilter implements Filter {
 			} else {
 				// forbidden
 				System.out.println("------------------------------------------------------------->>>");
-				System.out.println("------------->power2"+power);
+				System.out.println("------------->power2:"+power);
 				//httpServletRequest.getRequestDispatcher("/forbidden.html").forward(httpServletRequest, httpServletResponse);
 				httpServletResponse.sendRedirect("/assets/forbidden.html");
 			}
