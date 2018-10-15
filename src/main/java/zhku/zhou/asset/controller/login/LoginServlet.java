@@ -30,6 +30,11 @@ public class LoginServlet {
 		ModelAndView mav = new ModelAndView();
 		List<User> userList;
 		HttpSession session = request.getSession();
+		User tempUser = (User) session.getAttribute("user2");
+		if (tempUser!=null) {
+			mav.setViewName("forward:/WEB-INF/page/index.jsp");
+			return mav;
+		}
 		try {
 			userList = loginService.login(user);
 			//userList.get(0)在获取不到的时候抛出异常
