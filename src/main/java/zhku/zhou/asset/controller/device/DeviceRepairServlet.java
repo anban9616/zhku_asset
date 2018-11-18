@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
-
 import zhku.zhou.asset.entity.Device;
 import zhku.zhou.asset.entity.DeviceRepair;
 import zhku.zhou.asset.entity.DeviceRepairPage;

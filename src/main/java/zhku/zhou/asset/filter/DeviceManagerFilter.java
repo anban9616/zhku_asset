@@ -2,7 +2,6 @@ package zhku.zhou.asset.filter;
 
 import java.io.IOException;
 
-import javax.annotation.PostConstruct;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
@@ -13,12 +12,10 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import zhku.zhou.asset.entity.Role;
 import zhku.zhou.asset.entity.User;
-import zhku.zhou.asset.service.system.RoleService;
 @Component
 @WebFilter("/*")
 public class DeviceManagerFilter implements Filter {
